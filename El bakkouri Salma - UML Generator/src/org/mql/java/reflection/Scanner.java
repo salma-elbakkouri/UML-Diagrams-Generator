@@ -1,10 +1,15 @@
 package org.mql.java.reflection;
 
 import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.mql.java.models.ClassEntity;
+import org.mql.java.models.FieldEntity;
+import org.mql.java.models.MethodEntity;
 import org.mql.java.models.PackageEntity;
 import org.mql.java.models.Project;
 
@@ -24,7 +29,7 @@ public class Scanner {
             project = new Project(rootPath);
             project.setPackages(retrievePackages(srcFolder, ""));
         } else {
-            System.out.println("Error: 'src' folder does not exist in the project.");
+            System.out.println("error: 'src' folder does not exist in the project");
         }
     }
 
@@ -39,11 +44,9 @@ public class Scanner {
         for (File file : files) {
             if (file.isDirectory()) {
                 String newPackageName = packageName.isEmpty() ? file.getName() : packageName + "." + file.getName();
-
                 PackageEntity packageEntity = new PackageEntity(newPackageName);
                 packageEntity.setClasses(retrieveClasses(file, newPackageName));
                 packages.add(packageEntity);
-
                 packages.addAll(retrievePackages(file, newPackageName));
             }
         }
@@ -60,13 +63,33 @@ public class Scanner {
 
         for (File file : files) {
             if (file.isFile() && file.getName().endsWith(".java")) {
-                String className = file.getName().replace(".java", "");
-                ClassEntity classEntity = new ClassEntity(packageName + "." + className, "class");
-                classEntity.setFields(new ArrayList<>());
-                classEntity.setMethods(new ArrayList<>());
-                classEntity.setAnnotations(new ArrayList<>());
+                String className = packageName + "." + file.getName().replace(".java", "");
+                try {
+                    Class<?> clazz = Class.forName(className);
+                    ClassEntity classEntity = new ClassEntity(className, clazz.isInterface() ? "interface" : "class");
 
-                classes.add(classEntity);
+                    List<FieldEntity> fields = new ArrayList<>();
+                    for (Field field : clazz.getDeclaredFields()) {
+                        List<String> modifiers = List.of(Modifier.toString(field.getModifiers()).split(" "));
+                        fields.add(new FieldEntity(field.getName(), field.getType().getSimpleName(), modifiers));
+                    }
+                    classEntity.setFields(fields);
+
+                    List<MethodEntity> methods = new ArrayList<>();
+                    for (Method method : clazz.getDeclaredMethods()) {
+                        List<String> methodModifiers = List.of(Modifier.toString(method.getModifiers()).split(" "));
+                        List<String> parameters = new ArrayList<>();
+                        for (Class<?> paramType : method.getParameterTypes()) {
+                            parameters.add(paramType.getSimpleName());
+                        }
+                        methods.add(new MethodEntity(method.getName(), method.getReturnType().getSimpleName(), parameters, methodModifiers));
+                    }
+                    classEntity.setMethods(methods);
+
+                    classes.add(classEntity);
+                } catch (ClassNotFoundException e) {
+                    System.out.println("Class not found: " + className);
+                }
             }
         }
 
@@ -82,6 +105,17 @@ public class Scanner {
 
             for (ClassEntity cls : pkg.getClasses()) {
                 System.out.println("  Class: " + cls.getName());
+
+                System.out.println("    Fields:");
+                for (FieldEntity field : cls.getFields()) {
+                    System.out.println("      " + String.join(" ", field.getModifiers()) + " " + field.getType() + " " + field.getName());
+                }
+
+                System.out.println("    Methods:");
+                for (MethodEntity method : cls.getMethods()) {
+                    String parameters = String.join(", ", method.getParameters());
+                    System.out.println("      " + String.join(" ", method.getModifiers()) + " " + method.getReturnType() + " " + method.getName() + "(" + parameters + ")");
+                }
             }
         }
     }
@@ -92,7 +126,6 @@ public class Scanner {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner();
-        Project project = scanner.getProject();
         scanner.displayScanResults();
     }
 }
