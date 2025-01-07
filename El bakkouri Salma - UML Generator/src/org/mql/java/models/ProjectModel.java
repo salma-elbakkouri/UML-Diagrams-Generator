@@ -2,11 +2,11 @@ package org.mql.java.models;
 
 import java.util.List;
 
-public class Project {
+public class ProjectModel {
 	private String name;
-	private List<PackageEntity> packages;
+	private List<PackageModel> packages;
 
-	public Project(String name) {
+	public ProjectModel(String name) {
 		this.name = name;
 	}
 
@@ -18,11 +18,11 @@ public class Project {
 		this.name = name;
 	}
 
-	public List<PackageEntity> getPackages() {
+	public List<PackageModel> getPackages() {
 		return packages;
 	}
 
-	public void setPackages(List<PackageEntity> packages) {
+	public void setPackages(List<PackageModel> packages) {
 		this.packages = packages;
 	}
 

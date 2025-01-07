@@ -2,13 +2,13 @@ package org.mql.java.models;
 
 import java.util.List;
 
-public class MethodEntity {
+public class MethodModel {
 	private String name;
 	private String returnType;
 	private List<String> parameters;
 	private List<String> modifiers;
 
-	public MethodEntity(String name, String returnType, List<String> parameters, List<String> modifiers) {
+	public MethodModel(String name, String returnType, List<String> parameters, List<String> modifiers) {
 		this.name = name;
 		this.returnType = returnType;
 		this.parameters = parameters;
@@ -45,5 +45,11 @@ public class MethodEntity {
 
 	public void setModifiers(List<String> modifiers) {
 		this.modifiers = modifiers;
+	}
+
+	@Override
+	public String toString() {
+		return "MethodModel{" + "name='" + name + '\'' + ", returnType='" + returnType + '\'' + ", parameters="
+				+ parameters + ", modifiers=" + modifiers + '}';
 	}
 }

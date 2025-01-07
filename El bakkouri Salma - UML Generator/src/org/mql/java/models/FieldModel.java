@@ -2,12 +2,12 @@ package org.mql.java.models;
 
 import java.util.List;
 
-public class FieldEntity {
+public class FieldModel {
 	private String name;
 	private String type;
 	private List<String> modifiers;
 
-	public FieldEntity(String name, String type, List<String> modifiers) {
+	public FieldModel(String name, String type, List<String> modifiers) {
 		this.name = name;
 		this.type = type;
 		this.modifiers = modifiers;
@@ -35,5 +35,10 @@ public class FieldEntity {
 
 	public void setModifiers(List<String> modifiers) {
 		this.modifiers = modifiers;
+	}
+
+	@Override
+	public String toString() {
+		return "FieldModel{" + "name='" + name + '\'' + ", type='" + type + '\'' + ", modifiers=" + modifiers + '}';
 	}
 }
