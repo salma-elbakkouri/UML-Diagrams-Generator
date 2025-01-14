@@ -1,0 +1,87 @@
+package org.mql.java.scanners;
+
+import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.List;
+import java.util.Vector;
+
+import org.mql.java.models.ClassModel;
+import org.mql.java.models.FieldModel;
+import org.mql.java.models.MethodModel;
+import org.mql.java.models.RelationshipModel;
+
+public class ClassExplorer {
+
+	private List<RelationshipModel> relationships = new Vector<>();
+
+	public List<ClassModel> exploreClasses(File folder, String packageName) {
+
+		List<ClassModel> classes = new Vector<>();
+		File[] files = folder.listFiles();
+		if (files == null)
+			return classes;
+
+		for (File file : files) {
+			if (file.isFile() && file.getName().endsWith(".java")) {
+				String className = packageName + "." + file.getName().replace(".java", "");
+				try {
+					Class<?> cls = Class.forName(className);
+					ClassModel classModel = new ClassModel(className, cls.isInterface() ? "interface" : "class");
+
+					classModel.setFields(exploreFields(cls));
+					classModel.setMethods(exploreMethods(cls));
+					classModel.setRelationships(detectRelationships(cls));
+
+					classes.add(classModel);
+				} catch (ClassNotFoundException e) {
+					System.out.println("Class not found: " + className);
+				}
+			}
+		}
+		return classes;
+	}
+
+	public List<FieldModel> exploreFields(Class<?> cls) {
+		List<FieldModel> fields = new Vector<>();
+		for (Field field : cls.getDeclaredFields()) {
+			List<String> modifiers = List.of(Modifier.toString(field.getModifiers()).split(" "));
+			FieldModel fieldModel = new FieldModel(field.getName(), field.getType().getSimpleName(), modifiers);
+			fields.add(fieldModel);
+		}
+		return fields;
+	}
+
+	public List<MethodModel> exploreMethods(Class<?> cls) {
+		List<MethodModel> methods = new Vector<>();
+		for (Method method : cls.getDeclaredMethods()) {
+			List<String> modifiers = List.of(Modifier.toString(method.getModifiers()).split(" "));
+			List<String> parameters = new Vector<>();
+			for (Class<?> paramType : method.getParameterTypes()) {
+				parameters.add(paramType.getSimpleName());
+			}
+			MethodModel methodModel = new MethodModel(method.getName(), method.getReturnType().getSimpleName(),
+					parameters, modifiers);
+			methods.add(methodModel);
+		}
+		return methods;
+	}
+
+	public List<RelationshipModel> detectRelationships(Class<?> cls) {
+		if (cls.getSuperclass() != null && !cls.getSuperclass().equals(Object.class)) {
+			RelationshipModel relation = new RelationshipModel(cls.getSimpleName(), cls.getSuperclass().getSimpleName(),
+					"extends");
+			relationships.add(relation);
+		}
+
+		for (Class<?> interfaceFound : cls.getInterfaces()) {
+			RelationshipModel relation = new RelationshipModel(cls.getSimpleName(), interfaceFound.getSimpleName(),
+					"implements");
+			relationships.add(relation);
+		}
+		return relationships;
+
+	}
+
+}

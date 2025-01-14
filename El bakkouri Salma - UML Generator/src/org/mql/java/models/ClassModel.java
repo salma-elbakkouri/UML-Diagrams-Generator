@@ -8,6 +8,15 @@ public class ClassModel {
 	private List<String> modifiers;
 	private List<FieldModel> fields;
 	private List<MethodModel> methods;
+	private List<RelationshipModel> relationships;
+
+	public List<RelationshipModel> getRelationships() {
+		return relationships;
+	}
+
+	public void setRelationships(List<RelationshipModel> relationships) {
+		this.relationships = relationships;
+	}
 
 	public ClassModel(String name, String type) {
 		this.name = name;
@@ -56,7 +65,29 @@ public class ClassModel {
 
 	@Override
 	public String toString() {
-		return "ClassModel{" + "name='" + name + '\'' + ", type='" + type + '\'' + ", modifiers=" + modifiers
-				+ ", fields=" + fields + ", methods=" + methods + '}';
+		StringBuilder sb = new StringBuilder("");
+		sb.append("|__ Class: " + name + "\n");
+		if (!fields.isEmpty()) {
+			sb.append("\t|__ Fields:\n");
+			for (FieldModel field : fields) {
+				sb.append("\t    ").append(field).append("\n");
+			}
+		}
+		if (!methods.isEmpty()) {
+			sb.append("\t|__ Methods:\n");
+			for (MethodModel method : methods) {
+				sb.append("\t    ").append(method).append("\n");
+			}
+		}
+		if (!relationships.isEmpty()) {
+			sb.append("\t|__ Relationships:\n");
+			for (RelationshipModel relationship : relationships) {
+				sb.append("\t    ").append(relationship).append("\n");
+			}
+		}
+
+		return sb.toString();
+
 	}
+
 }

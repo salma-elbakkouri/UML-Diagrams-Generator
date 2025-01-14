@@ -39,6 +39,8 @@ public class FieldModel {
 
 	@Override
 	public String toString() {
-		return "FieldModel{" + "name='" + name + '\'' + ", type='" + type + '\'' + ", modifiers=" + modifiers + '}';
+	    return String.format("%s %s %s", String.join(" ", modifiers), type, name);
 	}
+
+
 }

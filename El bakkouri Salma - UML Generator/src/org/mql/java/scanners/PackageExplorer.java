@@ -1,4 +1,4 @@
-package org.mql.java.reflection;
+package org.mql.java.scanners;
 
 import java.io.File;
 import java.util.ArrayList;

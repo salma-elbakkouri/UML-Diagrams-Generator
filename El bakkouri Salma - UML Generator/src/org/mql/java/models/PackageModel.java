@@ -25,4 +25,15 @@ public class PackageModel {
 	public void setClasses(List<ClassModel> classes) {
 		this.classes = classes;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("");
+		sb.append("|__ Package: " + name + "\n");
+		for (ClassModel cls : classes) {
+			sb.append("    ").append(cls).append("\n");
+		}
+		return sb.toString();
+	}
+
 }

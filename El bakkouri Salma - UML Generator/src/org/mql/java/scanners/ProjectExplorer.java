@@ -1,4 +1,4 @@
-package org.mql.java.reflection;
+package org.mql.java.scanners;
 
 import java.io.File;
 
@@ -19,7 +19,7 @@ public class ProjectExplorer {
             project.setPackages(packageExplorer.explorePackages(srcFolder, ""));
             return project;
         } else {
-            System.out.println("Error : 'src' folder does not exist in the project");
+            System.err.println("Error : 'src' folder does not exist in the project");
             return null;
         }
     }

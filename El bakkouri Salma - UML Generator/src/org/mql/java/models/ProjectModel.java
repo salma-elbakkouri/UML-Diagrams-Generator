@@ -26,4 +26,16 @@ public class ProjectModel {
 		this.packages = packages;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("");
+		sb.append("Project: " + name + "\n");
+		for (PackageModel pkg : packages) {
+			if (!pkg.getClasses().isEmpty()) {
+				sb.append(pkg).append("\n");
+			}
+		}
+		return sb.toString();
+	}
+
 }

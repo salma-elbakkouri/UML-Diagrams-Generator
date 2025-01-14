@@ -49,7 +49,8 @@ public class MethodModel {
 
 	@Override
 	public String toString() {
-		return "MethodModel{" + "name='" + name + '\'' + ", returnType='" + returnType + '\'' + ", parameters="
-				+ parameters + ", modifiers=" + modifiers + '}';
+		return String.format("%s %s %s(%s)", String.join(" ", modifiers), returnType, name,
+				String.join(", ", parameters));
 	}
+
 }
