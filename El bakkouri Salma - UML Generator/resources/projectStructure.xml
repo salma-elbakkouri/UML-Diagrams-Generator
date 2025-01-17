@@ -1,0 +1,38 @@
+<project name="" path="">
+	<packages>
+		<package name="" path="">
+			<classes>
+				<class name="" type="">
+					<modifiers>
+						<modifier>public</modifier>
+						<modifier>final</modifier>
+					</modifiers>
+					<fields>
+						<field name="" type="" isStatic="false">
+							<modifiers>
+								<modifier>private</modifier>
+							</modifiers>
+						</field>
+					</fields>
+					<methods>
+						<method name="" returnType="" isStatic="false">
+							<parameters>
+								<parameter name="" type="String" />
+								<parameter name="" type="int" />
+							</parameters>
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+					</methods>
+					<relationships>
+						<relationship sourceClass="" destinationClass=""
+							type="association" />
+						<relationship sourceClass="" destinationClass=""
+							type="inheritance" />
+					</relationships>
+				</class>
+			</classes>
+		</package>
+	</packages>
+</project>
