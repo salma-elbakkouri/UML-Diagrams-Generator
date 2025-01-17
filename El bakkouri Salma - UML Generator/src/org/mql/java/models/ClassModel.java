@@ -18,6 +18,10 @@ public class ClassModel {
 		this.relationships = relationships;
 	}
 
+	public ClassModel() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public ClassModel(String name, String type) {
 		this.name = name;
 		this.type = type;
@@ -66,7 +70,9 @@ public class ClassModel {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("");
-		sb.append("|__ Class: " + name + "\n");
+		String formattedModifiers = String.join(" ", modifiers);
+		sb.append("|__ " + formattedModifiers + " " + type + ": " + name + "\n");
+
 		if (!fields.isEmpty()) {
 			sb.append("\t|__ Fields:\n");
 			for (FieldModel field : fields) {

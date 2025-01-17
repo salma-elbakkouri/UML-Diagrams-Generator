@@ -26,10 +26,22 @@ public class ClassExplorer {
 		for (File file : files) {
 			if (file.isFile() && file.getName().endsWith(".java")) {
 				String className = packageName + "." + file.getName().replace(".java", "");
+				ClassModel classModel = new ClassModel();
+				
 				try {
 					Class<?> cls = Class.forName(className);
-					ClassModel classModel = new ClassModel(className, cls.isInterface() ? "interface" : "class");
-
+					classModel.setName(cls.getSimpleName());
+					if (cls.isEnum()) {
+					    classModel.setType("enumeration");
+					} else if (cls.isAnnotation()) {
+					    classModel.setType("annotation");
+					} else if (cls.isInterface()) {
+					    classModel.setType("interface");
+					} else {
+					    classModel.setType("class");
+					}
+					List<String> classModifiers = List.of(Modifier.toString(cls.getModifiers()).split(" "));
+					classModel.setModifiers(classModifiers);
 					classModel.setFields(exploreFields(cls));
 					classModel.setMethods(exploreMethods(cls));
 					classModel.setRelationships(detectRelationships(cls));
