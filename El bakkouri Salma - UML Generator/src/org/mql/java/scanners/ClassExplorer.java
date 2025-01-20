@@ -105,8 +105,31 @@ public class ClassExplorer {
 					"implements");
 			relationships.add(relation);
 		}
-		return relationships;
 
+		for (Field field : cls.getDeclaredFields()) {
+		    Class<?> fieldType = field.getType();
+		    if (!fieldType.isPrimitive() && !fieldType.equals(Object.class)) {
+		        relationships.add(new RelationshipModel(
+		            cls.getSimpleName(), 
+		            fieldType.getSimpleName(), 
+		            "aggregates"
+		        ));
+		    }
+		}
+
+		for (Method method : cls.getDeclaredMethods()) {
+			Class<?> returnType = method.getReturnType();
+			if (!returnType.isPrimitive() && !returnType.equals(Object.class)) {
+				relationships.add(new RelationshipModel(cls.getSimpleName(), returnType.getSimpleName(), "uses"));
+			}
+
+			for (Class<?> paramType : method.getParameterTypes()) {
+				if (!paramType.isPrimitive() && !paramType.equals(Object.class)) {
+					relationships.add(new RelationshipModel(cls.getSimpleName(), paramType.getSimpleName(), "uses"));
+				}
+			}
+		}
+		return relationships;
 	}
 
 	private List<ParameterModel> extractParameters(Executable executable) {
