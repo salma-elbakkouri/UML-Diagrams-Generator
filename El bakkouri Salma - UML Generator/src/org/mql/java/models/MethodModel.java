@@ -5,10 +5,10 @@ import java.util.List;
 public class MethodModel {
 	private String name;
 	private String returnType;
-	private List<String> parameters;
+	private List<ParameterModel> parameters;
 	private List<String> modifiers;
 
-	public MethodModel(String name, String returnType, List<String> parameters, List<String> modifiers) {
+	public MethodModel(String name, String returnType, List<ParameterModel> parameters, List<String> modifiers) {
 		this.name = name;
 		this.returnType = returnType;
 		this.parameters = parameters;
@@ -31,11 +31,11 @@ public class MethodModel {
 		this.returnType = returnType;
 	}
 
-	public List<String> getParameters() {
+	public List<ParameterModel> getParameters() {
 		return parameters;
 	}
 
-	public void setParameters(List<String> parameters) {
+	public void setParameters(List<ParameterModel> parameters) {
 		this.parameters = parameters;
 	}
 
@@ -49,8 +49,14 @@ public class MethodModel {
 
 	@Override
 	public String toString() {
-		return String.format("%s %s %s(%s)", String.join(" ", modifiers), returnType, name,
-				String.join(", ", parameters));
+		StringBuilder params = new StringBuilder();
+		for (int i = 0; i < parameters.size(); i++) {
+			params.append(parameters.get(i));
+			if (i < parameters.size() - 1) {
+				params.append(", ");
+			}
+		}
+		return String.format("%s %s %s(%s)", String.join(" ", modifiers), returnType, name, params.toString());
 	}
 
 }

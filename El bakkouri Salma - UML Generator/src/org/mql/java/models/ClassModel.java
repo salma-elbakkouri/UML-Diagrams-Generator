@@ -9,17 +9,9 @@ public class ClassModel {
 	private List<FieldModel> fields;
 	private List<MethodModel> methods;
 	private List<RelationshipModel> relationships;
-
-	public List<RelationshipModel> getRelationships() {
-		return relationships;
-	}
-
-	public void setRelationships(List<RelationshipModel> relationships) {
-		this.relationships = relationships;
-	}
+	private List<ConstructorModel> constructors;
 
 	public ClassModel() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public ClassModel(String name, String type) {
@@ -67,11 +59,34 @@ public class ClassModel {
 		this.methods = methods;
 	}
 
+	public List<RelationshipModel> getRelationships() {
+		return relationships;
+	}
+
+	public void setRelationships(List<RelationshipModel> relationships) {
+		this.relationships = relationships;
+	}
+
+	public List<ConstructorModel> getConstructors() {
+		return constructors;
+	}
+
+	public void setConstructors(List<ConstructorModel> constructors) {
+		this.constructors = constructors;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("");
 		String formattedModifiers = String.join(" ", modifiers);
 		sb.append("|__ " + formattedModifiers + " " + type + ": " + name + "\n");
+		
+	    if (!constructors.isEmpty()) {
+	        sb.append("\t|__ Constructors:\n");
+	        for (ConstructorModel constructor : constructors) {
+	            sb.append("\t    ").append(constructor).append("\n");
+	        }
+	    }
 
 		if (!fields.isEmpty()) {
 			sb.append("\t|__ Fields:\n");

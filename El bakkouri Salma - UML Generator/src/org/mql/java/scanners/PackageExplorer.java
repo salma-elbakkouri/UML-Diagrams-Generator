@@ -18,7 +18,7 @@ public class PackageExplorer {
                 String newPackageName = packageName.isEmpty() ? file.getName() : packageName + "." + file.getName();
                 PackageModel packageModel = new PackageModel(newPackageName);
                 ClassExplorer classExplorer = new ClassExplorer();
-                packageModel.setClasses(classExplorer.exploreClasses(file, newPackageName));
+                packageModel.setClasses(classExplorer.extractClasses(file, newPackageName));
                 packages.add(packageModel);
                 packages.addAll(explorePackages(file, newPackageName));
             }
