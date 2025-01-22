@@ -1,29 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <projects>
-	<project name="existingProjectName" path="existing/project/path">
-	</project>
 	<project
+		name="C:\Users\salma\git\repository2\El bakkouri Salma - UML Generator"
 		path="C:\Users\salma\git\repository2\El bakkouri Salma - UML Generator">
 		<packages>
-			<package path="org"></package>
-			<package path="org.mql"></package>
-			<package path="org.mql.java"></package>
-			<package path="org.mql.java.annotations">
+			<package name="org" path="org" />
+			<package name="org.mql" path="org.mql" />
+			<package name="org.mql.java" path="org.mql.java" />
+			<package name="org.mql.java.annotations"
+				path="org.mql.java.annotations">
 				<class name="TestAnnotation" type="annotation">
 					<modifiers>
 						<modifier>public</modifier>
 						<modifier>abstract</modifier>
 						<modifier>interface</modifier>
 					</modifiers>
-					<fields></fields>
-					<constructors></constructors>
-					<methods></methods>
+					<fields />
+					<constructors />
+					<methods />
 					<relationships>
 						<relationship sourceClass="TestAnnotation"
 							targetClass="Annotation" type="IMPLEMENTS" />
 					</relationships>
 				</class>
 			</package>
-			<package path="org.mql.java.enums">
+			<package name="org.mql.java.enums" path="org.mql.java.enums">
 				<class name="RelationType" type="enumeration">
 					<modifiers>
 						<modifier>public</modifier>
@@ -96,8 +97,7 @@
 					</methods>
 					<relationships>
 						<relationship sourceClass="RelationType"
-							targetClass="Enum"
-							type="EXTENDS" />
+							targetClass="Enum" type="EXTENDS" />
 						<relationship sourceClass="RelationType"
 							targetClass="RelationType[]" type="USES" />
 						<relationship sourceClass="RelationType"
@@ -111,7 +111,7 @@
 					</relationships>
 				</class>
 			</package>
-			<package path="org.mql.java.models">
+			<package name="org.mql.java.models" path="org.mql.java.models">
 				<class name="ClassModel" type="class">
 					<modifiers>
 						<modifier>public</modifier>
@@ -166,36 +166,6 @@
 						</constructor>
 					</constructors>
 					<methods>
-						<method name="setRelationships" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setModifiers" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getRelationships" returnType="Set">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setConstructors" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setMethods" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setType" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
 						<method name="getName" returnType="String">
 							<modifiers>
 								<modifier>public</modifier>
@@ -241,24 +211,50 @@
 								<modifier>public</modifier>
 							</modifiers>
 						</method>
+						<method name="setModifiers" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+						<method name="getRelationships" returnType="Set">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+						<method name="setRelationships" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+						<method name="setConstructors" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+						<method name="setType" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+						<method name="setMethods" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
 					</methods>
 					<relationships>
 						<relationship sourceClass="ClassModel"
-							targetClass="List"
-							type="AGGREGATES" />
+							targetClass="List" type="AGGREGATES" />
 						<relationship sourceClass="ClassModel" targetClass="Set"
 							type="AGGREGATES" />
 						<relationship sourceClass="ClassModel" targetClass="Set"
 							type="USES" />
 						<relationship sourceClass="ClassModel"
-							targetClass="String"
-							type="USES" />
+							targetClass="String" type="USES" />
 						<relationship sourceClass="ClassModel"
-							targetClass="List"
-							type="USES" />
+							targetClass="List" type="USES" />
 						<relationship sourceClass="ClassModel"
-							targetClass="String"
-							type="AGGREGATES" />
+							targetClass="String" type="AGGREGATES" />
 					</relationships>
 				</class>
 				<class name="ConstructorModel" type="class">
@@ -290,11 +286,6 @@
 						</constructor>
 					</constructors>
 					<methods>
-						<method name="setModifiers" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
 						<method name="toString" returnType="String">
 							<modifiers>
 								<modifier>public</modifier>
@@ -311,6 +302,11 @@
 							</modifiers>
 						</method>
 						<method name="setParameters" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+						<method name="setModifiers" returnType="void">
 							<modifiers>
 								<modifier>public</modifier>
 							</modifiers>
@@ -359,16 +355,6 @@
 						</constructor>
 					</constructors>
 					<methods>
-						<method name="setModifiers" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setType" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
 						<method name="getName" returnType="String">
 							<modifiers>
 								<modifier>public</modifier>
@@ -394,20 +380,26 @@
 								<modifier>public</modifier>
 							</modifiers>
 						</method>
+						<method name="setModifiers" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+						<method name="setType" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
 					</methods>
 					<relationships>
 						<relationship sourceClass="FieldModel"
-							targetClass="String"
-							type="AGGREGATES" />
+							targetClass="String" type="AGGREGATES" />
 						<relationship sourceClass="FieldModel"
-							targetClass="List"
-							type="AGGREGATES" />
+							targetClass="List" type="AGGREGATES" />
 						<relationship sourceClass="FieldModel"
-							targetClass="String"
-							type="USES" />
+							targetClass="String" type="USES" />
 						<relationship sourceClass="FieldModel"
-							targetClass="List"
-							type="USES" />
+							targetClass="List" type="USES" />
 					</relationships>
 				</class>
 				<class name="MethodModel" type="class">
@@ -449,16 +441,6 @@
 						</constructor>
 					</constructors>
 					<methods>
-						<method name="setReturnType" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setModifiers" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
 						<method name="getName" returnType="String">
 							<modifiers>
 								<modifier>public</modifier>
@@ -494,20 +476,26 @@
 								<modifier>public</modifier>
 							</modifiers>
 						</method>
+						<method name="setModifiers" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+						<method name="setReturnType" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
 					</methods>
 					<relationships>
 						<relationship sourceClass="MethodModel"
-							targetClass="String"
-							type="AGGREGATES" />
+							targetClass="String" type="AGGREGATES" />
 						<relationship sourceClass="MethodModel"
-							targetClass="String"
-							type="USES" />
+							targetClass="String" type="USES" />
 						<relationship sourceClass="MethodModel"
-							targetClass="List"
-							type="USES" />
+							targetClass="List" type="USES" />
 						<relationship sourceClass="MethodModel"
-							targetClass="List"
-							type="AGGREGATES" />
+							targetClass="List" type="AGGREGATES" />
 					</relationships>
 				</class>
 				<class name="PackageModel" type="class">
@@ -539,11 +527,6 @@
 						</constructor>
 					</constructors>
 					<methods>
-						<method name="setClasses" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
 						<method name="getName" returnType="String">
 							<modifiers>
 								<modifier>public</modifier>
@@ -564,16 +547,19 @@
 								<modifier>public</modifier>
 							</modifiers>
 						</method>
+						<method name="setClasses" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
 					</methods>
 					<relationships>
 						<relationship sourceClass="PackageModel"
-							targetClass="List"
-							type="AGGREGATES" />
-						<relationship sourceClass="PackageModel"
-							targetClass="List"
-							type="USES" />
+							targetClass="List" type="AGGREGATES" />
 						<relationship sourceClass="PackageModel"
 							targetClass="String" type="USES" />
+						<relationship sourceClass="PackageModel"
+							targetClass="List" type="USES" />
 						<relationship sourceClass="PackageModel"
 							targetClass="String" type="AGGREGATES" />
 					</relationships>
@@ -607,11 +593,6 @@
 						</constructor>
 					</constructors>
 					<methods>
-						<method name="setType" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
 						<method name="getName" returnType="String">
 							<modifiers>
 								<modifier>public</modifier>
@@ -628,6 +609,11 @@
 							</modifiers>
 						</method>
 						<method name="getType" returnType="String">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+						<method name="setType" returnType="void">
 							<modifiers>
 								<modifier>public</modifier>
 							</modifiers>
@@ -669,17 +655,6 @@
 						</constructor>
 					</constructors>
 					<methods>
-						<method name="setPackages" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="lambda$0" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
 						<method name="getName" returnType="String">
 							<modifiers>
 								<modifier>public</modifier>
@@ -700,18 +675,27 @@
 								<modifier>public</modifier>
 							</modifiers>
 						</method>
+						<method name="lambda$0" returnType="void">
+							<modifiers>
+								<modifier>private</modifier>
+								<modifier>static</modifier>
+							</modifiers>
+						</method>
+						<method name="setPackages" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
 					</methods>
 					<relationships>
 						<relationship sourceClass="ProjectModel"
 							targetClass="String" type="AGGREGATES" />
 						<relationship sourceClass="ProjectModel"
-							targetClass="List"
-							type="USES" />
+							targetClass="List" type="USES" />
 						<relationship sourceClass="ProjectModel"
 							targetClass="StringBuilder" type="USES" />
 						<relationship sourceClass="ProjectModel"
-							targetClass="List"
-							type="AGGREGATES" />
+							targetClass="List" type="AGGREGATES" />
 						<relationship sourceClass="ProjectModel"
 							targetClass="PackageModel" type="USES" />
 						<relationship sourceClass="ProjectModel"
@@ -752,7 +736,17 @@
 						</constructor>
 					</constructors>
 					<methods>
-						<method name="getTargetClass" returnType="String">
+						<method name="equals" returnType="boolean">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+						<method name="toString" returnType="String">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
+						<method name="hashCode" returnType="int">
 							<modifiers>
 								<modifier>public</modifier>
 							</modifiers>
@@ -772,27 +766,17 @@
 								<modifier>public</modifier>
 							</modifiers>
 						</method>
+						<method name="getTargetClass" returnType="String">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
 						<method name="getRelationType" returnType="RelationType">
 							<modifiers>
 								<modifier>public</modifier>
 							</modifiers>
 						</method>
 						<method name="setRelationType" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="equals" returnType="boolean">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="toString" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="hashCode" returnType="int">
 							<modifiers>
 								<modifier>public</modifier>
 							</modifiers>
@@ -815,18 +799,18 @@
 						<modifier>abstract</modifier>
 						<modifier>interface</modifier>
 					</modifiers>
-					<fields></fields>
-					<constructors></constructors>
-					<methods></methods>
-					<relationships></relationships>
+					<fields />
+					<constructors />
+					<methods />
+					<relationships />
 				</class>
 			</package>
-			<package path="org.mql.java.scanners">
+			<package name="org.mql.java.scanners" path="org.mql.java.scanners">
 				<class name="ClassExplorer" type="class">
 					<modifiers>
 						<modifier>public</modifier>
 					</modifiers>
-					<fields></fields>
+					<fields />
 					<constructors>
 						<constructor>
 							<modifiers>
@@ -845,14 +829,14 @@
 								<modifier>public</modifier>
 							</modifiers>
 						</method>
-						<method name="extractMethods" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
 						<method name="extractParameters" returnType="List">
 							<modifiers>
 								<modifier>private</modifier>
+							</modifiers>
+						</method>
+						<method name="extractMethods" returnType="List">
+							<modifiers>
+								<modifier>public</modifier>
 							</modifiers>
 						</method>
 						<method name="extractConstructors" returnType="List">
@@ -868,27 +852,24 @@
 					</methods>
 					<relationships>
 						<relationship sourceClass="ClassExplorer"
-							targetClass="File"
-							type="USES" />
+							targetClass="File" type="USES" />
 						<relationship sourceClass="ClassExplorer"
 							targetClass="String" type="USES" />
 						<relationship sourceClass="ClassExplorer"
-							targetClass="List"
-							type="USES" />
+							targetClass="List" type="USES" />
 						<relationship sourceClass="ClassExplorer"
 							targetClass="Class" type="USES" />
 						<relationship sourceClass="ClassExplorer"
 							targetClass="Executable" type="USES" />
 						<relationship sourceClass="ClassExplorer"
-							targetClass="Set"
-							type="USES" />
+							targetClass="Set" type="USES" />
 					</relationships>
 				</class>
 				<class name="PackageExplorer" type="class">
 					<modifiers>
 						<modifier>public</modifier>
 					</modifiers>
-					<fields></fields>
+					<fields />
 					<constructors>
 						<constructor>
 							<modifiers>
@@ -964,16 +945,6 @@
 						</constructor>
 					</constructors>
 					<methods>
-						<method name="displayScanResults" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="saveToXML" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
 						<method name="main" returnType="void">
 							<modifiers>
 								<modifier>public</modifier>
@@ -985,6 +956,16 @@
 								<modifier>public</modifier>
 							</modifiers>
 						</method>
+						<method name="saveToXML" returnType="void">
+							<modifiers>
+								<modifier>private</modifier>
+							</modifiers>
+						</method>
+						<method name="displayScanResults" returnType="void">
+							<modifiers>
+								<modifier>public</modifier>
+							</modifiers>
+						</method>
 					</methods>
 					<relationships>
 						<relationship sourceClass="Scanner"
@@ -992,14 +973,13 @@
 						<relationship sourceClass="Scanner"
 							targetClass="ProjectModel" type="USES" />
 						<relationship sourceClass="Scanner"
-							targetClass="String[]"
-							type="USES" />
+							targetClass="String[]" type="USES" />
 						<relationship sourceClass="Scanner" targetClass="String"
 							type="USES" />
 					</relationships>
 				</class>
 			</package>
-			<package path="org.mql.java.ui">
+			<package name="org.mql.java.ui" path="org.mql.java.ui">
 				<class name="Frame" type="class">
 					<modifiers>
 						<modifier>public</modifier>
@@ -1043,12 +1023,12 @@
 					</relationships>
 				</class>
 			</package>
-			<package path="org.mql.java.util">
+			<package name="org.mql.java.util" path="org.mql.java.util">
 				<class name="ConsoleDisplay" type="class">
 					<modifiers>
 						<modifier>public</modifier>
 					</modifiers>
-					<fields></fields>
+					<fields />
 					<constructors>
 						<constructor>
 							<modifiers>
@@ -1057,7 +1037,13 @@
 						</constructor>
 					</constructors>
 					<methods>
-						<method name="displayClass" returnType="String">
+						<method name="lambda$0" returnType="void">
+							<modifiers>
+								<modifier>private</modifier>
+								<modifier>static</modifier>
+							</modifiers>
+						</method>
+						<method name="displayPackage" returnType="String">
 							<modifiers>
 								<modifier>public</modifier>
 								<modifier>static</modifier>
@@ -1069,15 +1055,9 @@
 								<modifier>static</modifier>
 							</modifiers>
 						</method>
-						<method name="displayPackage" returnType="String">
+						<method name="displayClass" returnType="String">
 							<modifiers>
 								<modifier>public</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-						<method name="lambda$0" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
 								<modifier>static</modifier>
 							</modifiers>
 						</method>
@@ -1122,7 +1102,7 @@
 					</relationships>
 				</class>
 			</package>
-			<package path="org.mql.java.xml">
+			<package name="org.mql.java.xml" path="org.mql.java.xml">
 				<class name="DOMWriter" type="class">
 					<modifiers>
 						<modifier>public</modifier>
@@ -1142,32 +1122,7 @@
 						</constructor>
 					</constructors>
 					<methods>
-						<method name="writeModifiers" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeRelationships" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeConstructors" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeClasses" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeMethods" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writePackages" returnType="void">
+						<method name="writeFields" returnType="void">
 							<modifiers>
 								<modifier>private</modifier>
 							</modifiers>
@@ -1177,7 +1132,32 @@
 								<modifier>public</modifier>
 							</modifiers>
 						</method>
-						<method name="writeFields" returnType="void">
+						<method name="writeConstructors" returnType="void">
+							<modifiers>
+								<modifier>private</modifier>
+							</modifiers>
+						</method>
+						<method name="writeRelationships" returnType="void">
+							<modifiers>
+								<modifier>private</modifier>
+							</modifiers>
+						</method>
+						<method name="writeModifiers" returnType="void">
+							<modifiers>
+								<modifier>private</modifier>
+							</modifiers>
+						</method>
+						<method name="writeMethods" returnType="void">
+							<modifiers>
+								<modifier>private</modifier>
+							</modifiers>
+						</method>
+						<method name="writeClasses" returnType="void">
+							<modifiers>
+								<modifier>private</modifier>
+							</modifiers>
+						</method>
+						<method name="writePackages" returnType="void">
 							<modifiers>
 								<modifier>private</modifier>
 							</modifiers>
@@ -1185,94 +1165,16 @@
 					</methods>
 					<relationships>
 						<relationship sourceClass="DOMWriter"
-							targetClass="Document"
-							type="USES" />
+							targetClass="Document" type="USES" />
 						<relationship sourceClass="DOMWriter" targetClass="Set"
 							type="USES" />
 						<relationship sourceClass="DOMWriter"
 							targetClass="ProjectModel" type="USES" />
 						<relationship sourceClass="DOMWriter"
-							targetClass="String"
-							type="AGGREGATES" />
+							targetClass="String" type="AGGREGATES" />
 						<relationship sourceClass="DOMWriter"
-							targetClass="Element"
-							type="USES" />
+							targetClass="Element" type="USES" />
 						<relationship sourceClass="DOMWriter" targetClass="List"
-							type="USES" />
-					</relationships>
-				</class>
-				<class name="STAXWriter" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="filePath" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="writeModifiers" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeRelationships" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeConstructors" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeClasses" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeMethods" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writePackages" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeProject" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="writeFields" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="STAXWriter"
-							targetClass="XMLStreamWriter" type="USES" />
-						<relationship sourceClass="STAXWriter"
-							targetClass="List"
-							type="USES" />
-						<relationship sourceClass="STAXWriter"
-							targetClass="String"
-							type="AGGREGATES" />
-						<relationship sourceClass="STAXWriter"
-							targetClass="ProjectModel" type="USES" />
-						<relationship sourceClass="STAXWriter" targetClass="Set"
 							type="USES" />
 					</relationships>
 				</class>

@@ -2,7 +2,6 @@ package org.mql.java.scanners;
 
 import org.mql.java.models.ProjectModel;
 import org.mql.java.xml.DOMWriter;
-import org.mql.java.xml.STAXWriter;
 
 public class Scanner {
 	private ProjectModel project;
@@ -31,7 +30,7 @@ public class Scanner {
 
 
 	private void saveToXML(String filePath) {
-		STAXWriter writer = new STAXWriter(filePath);
+		DOMWriter writer = new DOMWriter(filePath);
         writer.writeProject(project);
 	}
 	
