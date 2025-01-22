@@ -13,6 +13,10 @@ public class PackageModel {
 		this.name = name;
 	}
 
+	public PackageModel() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName() {
 		return name;
 	}

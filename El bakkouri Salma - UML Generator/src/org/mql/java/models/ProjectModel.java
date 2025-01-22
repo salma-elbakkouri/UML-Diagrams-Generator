@@ -12,6 +12,10 @@ public class ProjectModel {
 		this.name = name;
 	}
 
+	public ProjectModel() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName() {
 		return name;
 	}

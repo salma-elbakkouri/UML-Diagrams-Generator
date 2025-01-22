@@ -1,17 +1,8 @@
 package org.mql.java.scanners;
 
-import java.io.File;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.mql.java.models.ClassModel;
-import org.mql.java.models.FieldModel;
-import org.mql.java.models.MethodModel;
-import org.mql.java.models.PackageModel;
 import org.mql.java.models.ProjectModel;
+import org.mql.java.xml.DOMWriter;
+import org.mql.java.xml.STAXWriter;
 
 public class Scanner {
 	private ProjectModel project;
@@ -20,22 +11,30 @@ public class Scanner {
 		scan();
 	}
 
-	public void scan() {
+	public ProjectModel scan() {
 		String rootPath = System.getProperty("user.dir");
 		ProjectExplorer projectExplorer = new ProjectExplorer(rootPath);
 		project = projectExplorer.explore();
 		if (project != null) {
-			displayScanResults();
+			 displayScanResults();
+			 saveToXML("resources/projects.xml");
+			return project;
 		} else {
 			System.err.println("Project scanning failed!");
+			return null;
 		}
 	}
-	
 
 	public void displayScanResults() {
 		System.out.println(project);
 	}
 
+
+	private void saveToXML(String filePath) {
+		STAXWriter writer = new STAXWriter(filePath);
+        writer.writeProject(project);
+	}
+	
 	public static void main(String[] args) {
 		new Scanner();
 	}
