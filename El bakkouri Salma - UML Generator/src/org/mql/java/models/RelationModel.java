@@ -14,6 +14,9 @@ public class RelationModel {
 		this.relationType = relationType;
 	}
 
+	public RelationModel() {
+	}
+
 	public String getSourceClass() {
 		return sourceClass;
 	}

@@ -82,6 +82,8 @@ public class ClassModel {
 	public void setConstructors(List<ConstructorModel> constructors) {
 		this.constructors = constructors;
 	}
+	
+	
 
 	@Override
 	public String toString() {

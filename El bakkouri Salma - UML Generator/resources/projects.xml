@@ -1,38 +1,33 @@
-<project name="" path="">
-	<packages>
-		<package name="" path="">
-			<classes>
-				<class name="" type="">
-					<modifiers>
-						<modifier>public</modifier>
-						<modifier>final</modifier>
-					</modifiers>
-					<fields>
-						<field name="" type="" isStatic="false">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<methods>
-						<method name="" returnType="" isStatic="false">
-							<parameters>
-								<parameter name="" type="String" />
-								<parameter name="" type="int" />
-							</parameters>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="" destinationClass=""
-							type="association" />
-						<relationship sourceClass="" destinationClass=""
-							type="inheritance" />
-					</relationships>
-				</class>
-			</classes>
-		</package>
-	</packages>
-</project>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<class name="StudentClass" type="class">
+    <modifiers>
+        <modifier/>
+        <modifier/>
+    </modifiers>
+    <fields>
+        <field name="name" type="String">
+            <modifiers>
+                <modifier>private</modifier>
+            </modifiers>
+        </field>
+    </fields>
+    <constructors>
+        <constructor>
+            <modifiers>
+                <modifier>public</modifier>
+            </modifiers>
+            <parameters/>
+        </constructor>
+    </constructors>
+    <methods>
+        <method name="getStudent" returnType="void">
+            <modifiers>
+                <modifier>public</modifier>
+            </modifiers>
+            <parameters/>
+        </method>
+    </methods>
+    <relationships>
+        <relationship sourceClass="StudentClass" targetClass="PersonClass" type="EXTENDS"/>
+    </relationships>
+</class>

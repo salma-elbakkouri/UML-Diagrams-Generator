@@ -30,6 +30,7 @@ public class Scanner {
 			System.err.println("Project scanning failed!");
 		}
 	}
+	
 
 	public void displayScanResults() {
 		System.out.println(project);

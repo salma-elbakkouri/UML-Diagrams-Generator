@@ -15,6 +15,9 @@ public class MethodModel {
 		this.modifiers = modifiers;
 	}
 
+	public MethodModel() {
+	}
+
 	public String getName() {
 		return name;
 	}

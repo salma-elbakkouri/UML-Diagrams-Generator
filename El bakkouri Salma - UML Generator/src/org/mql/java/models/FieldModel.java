@@ -12,6 +12,9 @@ public class FieldModel {
 		this.type = type;
 		this.modifiers = modifiers;
 	}
+	
+	public FieldModel() {
+	}
 
 	public String getName() {
 		return name;
