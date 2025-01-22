@@ -1,6 +1,14 @@
 package org.mql.java.models;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import org.mql.java.enums.RelationType;
+import org.mql.java.util.ConsoleDisplay;
 
 public class ClassModel {
 	private String name;
@@ -8,7 +16,7 @@ public class ClassModel {
 	private List<String> modifiers;
 	private List<FieldModel> fields;
 	private List<MethodModel> methods;
-	private List<RelationshipModel> relationships;
+	private Set<RelationModel> relationships;
 	private List<ConstructorModel> constructors;
 
 	public ClassModel() {
@@ -59,11 +67,11 @@ public class ClassModel {
 		this.methods = methods;
 	}
 
-	public List<RelationshipModel> getRelationships() {
+	public Set<RelationModel> getRelationships() {
 		return relationships;
 	}
 
-	public void setRelationships(List<RelationshipModel> relationships) {
+	public void setRelationships(Set<RelationModel> relationships) {
 		this.relationships = relationships;
 	}
 
@@ -77,38 +85,25 @@ public class ClassModel {
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder("");
-		String formattedModifiers = String.join(" ", modifiers);
-		sb.append("|__ " + formattedModifiers + " " + type + ": " + name + "\n");
-		
-	    if (!constructors.isEmpty()) {
-	        sb.append("\t|__ Constructors:\n");
-	        for (ConstructorModel constructor : constructors) {
-	            sb.append("\t    ").append(constructor).append("\n");
-	        }
-	    }
+		StringBuilder sb = new StringBuilder();
 
+		sb.append("|__ Class: ").append(String.join(" ", modifiers)).append(" ").append(type).append(": ").append(name)
+				.append("\n");
+
+		if (!constructors.isEmpty()) {
+			sb.append(ConsoleDisplay.displaySection("Constructors", constructors, 1));
+		}
 		if (!fields.isEmpty()) {
-			sb.append("\t|__ Fields:\n");
-			for (FieldModel field : fields) {
-				sb.append("\t    ").append(field).append("\n");
-			}
+			sb.append(ConsoleDisplay.displaySection("Fields", fields, 1));
 		}
 		if (!methods.isEmpty()) {
-			sb.append("\t|__ Methods:\n");
-			for (MethodModel method : methods) {
-				sb.append("\t    ").append(method).append("\n");
-			}
+			sb.append(ConsoleDisplay.displaySection("Methods", methods, 1));
 		}
 		if (!relationships.isEmpty()) {
-			sb.append("\t|__ Relationships:\n");
-			for (RelationshipModel relationship : relationships) {
-				sb.append("\t    ").append(relationship).append("\n");
-			}
+			sb.append(ConsoleDisplay.displayRelationships(name, List.copyOf(relationships), 1));
 		}
 
 		return sb.toString();
-
 	}
 
 }

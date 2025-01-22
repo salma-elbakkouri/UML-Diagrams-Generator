@@ -7,15 +7,18 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Vector;
 
+import org.mql.java.enums.RelationType;
 import org.mql.java.models.ClassModel;
 import org.mql.java.models.ConstructorModel;
 import org.mql.java.models.FieldModel;
 import org.mql.java.models.MethodModel;
 import org.mql.java.models.ParameterModel;
-import org.mql.java.models.RelationshipModel;
+import org.mql.java.models.RelationModel;
 
 public class ClassExplorer {
 
@@ -92,40 +95,42 @@ public class ClassExplorer {
 		return methods;
 	}
 
-	public List<RelationshipModel> detectRelationships(Class<?> cls) {
-		List<RelationshipModel> relationships = new Vector<>();
+	public Set<RelationModel> detectRelationships(Class<?> cls) {
+		Set<RelationModel> relationships = new HashSet<>();
 		if (cls.getSuperclass() != null && !cls.getSuperclass().equals(Object.class)) {
-			RelationshipModel relation = new RelationshipModel(cls.getSimpleName(), cls.getSuperclass().getSimpleName(),
-					"extends");
+			RelationModel relation = new RelationModel(cls.getSimpleName(), cls.getSuperclass().getSimpleName(),
+					RelationType.EXTENDS);
 			relationships.add(relation);
 		}
 
 		for (Class<?> interfaceFound : cls.getInterfaces()) {
-			RelationshipModel relation = new RelationshipModel(cls.getSimpleName(), interfaceFound.getSimpleName(),
-					"implements");
+			RelationModel relation = new RelationModel(cls.getSimpleName(), interfaceFound.getSimpleName(),
+					RelationType.IMPLEMENTS);
 			relationships.add(relation);
 		}
 
 		for (Field field : cls.getDeclaredFields()) {
-		    Class<?> fieldType = field.getType();
-		    if (!fieldType.isPrimitive() && !fieldType.equals(Object.class)) {
-		        relationships.add(new RelationshipModel(
-		            cls.getSimpleName(), 
-		            fieldType.getSimpleName(), 
-		            "aggregates"
-		        ));
-		    }
+			Class<?> fieldType = field.getType();
+			if (!fieldType.isPrimitive() && !fieldType.equals(Object.class)) {
+				RelationModel relation = new RelationModel(cls.getSimpleName(), fieldType.getSimpleName(),
+						RelationType.AGGREGATES);
+				relationships.add(relation);
+			}
 		}
 
 		for (Method method : cls.getDeclaredMethods()) {
 			Class<?> returnType = method.getReturnType();
 			if (!returnType.isPrimitive() && !returnType.equals(Object.class)) {
-				relationships.add(new RelationshipModel(cls.getSimpleName(), returnType.getSimpleName(), "uses"));
+				RelationModel relation = new RelationModel(cls.getSimpleName(), returnType.getSimpleName(),
+						RelationType.USES);
+				relationships.add(relation);
 			}
 
 			for (Class<?> paramType : method.getParameterTypes()) {
 				if (!paramType.isPrimitive() && !paramType.equals(Object.class)) {
-					relationships.add(new RelationshipModel(cls.getSimpleName(), paramType.getSimpleName(), "uses"));
+					RelationModel relation = new RelationModel(cls.getSimpleName(), paramType.getSimpleName(),
+							RelationType.USES);
+					relationships.add(relation);
 				}
 			}
 		}

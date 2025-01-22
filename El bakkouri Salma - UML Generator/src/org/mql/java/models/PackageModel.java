@@ -1,6 +1,9 @@
 package org.mql.java.models;
 
+import java.awt.DisplayMode;
 import java.util.List;
+
+import org.mql.java.util.ConsoleDisplay;
 
 public class PackageModel {
 	private String name;
@@ -28,12 +31,7 @@ public class PackageModel {
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder("");
-		sb.append("|__ Package: " + name + "\n");
-		for (ClassModel cls : classes) {
-			sb.append("    ").append(cls).append("\n");
-		}
-		return sb.toString();
+	    return ConsoleDisplay.displayPackage(this, 0);
 	}
 
 }
