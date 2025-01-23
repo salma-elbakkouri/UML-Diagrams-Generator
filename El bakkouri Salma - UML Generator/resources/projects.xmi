@@ -1,279 +1,317 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xmi:XMI xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:uml="http://www.omg.org/spec/UML/20090901">
-    <uml:Model name="C:\Users\salma\git\repository2\El bakkouri Salma - UML Generator" xmi:type="uml:Model">
-        <packagedElement name="org" xmi:type="uml:Package"/>
-        <packagedElement name="org.mql" xmi:type="uml:Package"/>
-        <packagedElement name="org.mql.java" xmi:type="uml:Package"/>
-        <packagedElement name="org.mql.java.annotations" xmi:type="uml:Package">
-            <packagedElement name="TestAnnotation" xmi:type="uml:Class">
-                <association source="TestAnnotation" target="Annotation" type="IMPLEMENTS"/>
-            </packagedElement>
-        </packagedElement>
-        <packagedElement name="org.mql.java.enums" xmi:type="uml:Package">
-            <packagedElement name="RelationType" xmi:type="uml:Class">
-                <ownedAttribute name="USES" type="RelationType"/>
-                <ownedAttribute name="EXTENDS" type="RelationType"/>
-                <ownedAttribute name="IMPLEMENTS" type="RelationType"/>
-                <ownedAttribute name="AGGREGATES" type="RelationType"/>
-                <ownedAttribute name="COMPOSES" type="RelationType"/>
-                <ownedAttribute name="ENUM$VALUES" type="RelationType[]"/>
-                <ownedOperation name="values" returnType="RelationType[]"/>
-                <ownedOperation name="valueOf" returnType="RelationType"/>
-                <association source="RelationType" target="RelationType[]" type="AGGREGATES"/>
-                <association source="RelationType" target="RelationType[]" type="USES"/>
-                <association source="RelationType" target="Enum" type="EXTENDS"/>
-                <association source="RelationType" target="RelationType" type="USES"/>
-                <association source="RelationType" target="RelationType" type="AGGREGATES"/>
-                <association source="RelationType" target="String" type="USES"/>
-            </packagedElement>
-        </packagedElement>
-        <packagedElement name="org.mql.java.models" xmi:type="uml:Package">
-            <packagedElement name="ClassModel" xmi:type="uml:Class">
-                <ownedAttribute name="name" type="String"/>
-                <ownedAttribute name="type" type="String"/>
-                <ownedAttribute name="modifiers" type="List"/>
-                <ownedAttribute name="fields" type="List"/>
-                <ownedAttribute name="methods" type="List"/>
-                <ownedAttribute name="relationships" type="Set"/>
-                <ownedAttribute name="constructors" type="List"/>
-                <ownedOperation name="getName" returnType="String"/>
-                <ownedOperation name="toString" returnType="String"/>
-                <ownedOperation name="getModifiers" returnType="List"/>
-                <ownedOperation name="getFields" returnType="List"/>
-                <ownedOperation name="getMethods" returnType="List"/>
-                <ownedOperation name="getConstructors" returnType="List"/>
-                <ownedOperation name="setName" returnType="void"/>
-                <ownedOperation name="getType" returnType="String"/>
-                <ownedOperation name="setFields" returnType="void"/>
-                <ownedOperation name="setConstructors" returnType="void"/>
-                <ownedOperation name="getRelationships" returnType="Set"/>
-                <ownedOperation name="setModifiers" returnType="void"/>
-                <ownedOperation name="setRelationships" returnType="void"/>
-                <ownedOperation name="setType" returnType="void"/>
-                <ownedOperation name="setMethods" returnType="void"/>
-                <association source="ClassModel" target="Set" type="USES"/>
-                <association source="ClassModel" target="List" type="USES"/>
-                <association source="ClassModel" target="String" type="USES"/>
-                <association source="ClassModel" target="Set" type="AGGREGATES"/>
-                <association source="ClassModel" target="String" type="AGGREGATES"/>
-                <association source="ClassModel" target="List" type="AGGREGATES"/>
-            </packagedElement>
-            <packagedElement name="ConstructorModel" xmi:type="uml:Class">
-                <ownedAttribute name="modifiers" type="List"/>
-                <ownedAttribute name="parameters" type="List"/>
-                <ownedOperation name="toString" returnType="String"/>
-                <ownedOperation name="getModifiers" returnType="List"/>
-                <ownedOperation name="getParameters" returnType="List"/>
-                <ownedOperation name="setParameters" returnType="void"/>
-                <ownedOperation name="setModifiers" returnType="void"/>
-                <association source="ConstructorModel" target="List" type="AGGREGATES"/>
-                <association source="ConstructorModel" target="String" type="USES"/>
-                <association source="ConstructorModel" target="List" type="USES"/>
-            </packagedElement>
-            <packagedElement name="FieldModel" xmi:type="uml:Class">
-                <ownedAttribute name="name" type="String"/>
-                <ownedAttribute name="type" type="String"/>
-                <ownedAttribute name="modifiers" type="List"/>
-                <ownedOperation name="getName" returnType="String"/>
-                <ownedOperation name="toString" returnType="String"/>
-                <ownedOperation name="getModifiers" returnType="List"/>
-                <ownedOperation name="setName" returnType="void"/>
-                <ownedOperation name="getType" returnType="String"/>
-                <ownedOperation name="setModifiers" returnType="void"/>
-                <ownedOperation name="setType" returnType="void"/>
-                <association source="FieldModel" target="String" type="AGGREGATES"/>
-                <association source="FieldModel" target="List" type="AGGREGATES"/>
-                <association source="FieldModel" target="String" type="USES"/>
-                <association source="FieldModel" target="List" type="USES"/>
-            </packagedElement>
-            <packagedElement name="MethodModel" xmi:type="uml:Class">
-                <ownedAttribute name="name" type="String"/>
-                <ownedAttribute name="returnType" type="String"/>
-                <ownedAttribute name="parameters" type="List"/>
-                <ownedAttribute name="modifiers" type="List"/>
-                <ownedOperation name="getName" returnType="String"/>
-                <ownedOperation name="toString" returnType="String"/>
-                <ownedOperation name="getModifiers" returnType="List"/>
-                <ownedOperation name="getReturnType" returnType="String"/>
-                <ownedOperation name="setName" returnType="void"/>
-                <ownedOperation name="getParameters" returnType="List"/>
-                <ownedOperation name="setParameters" returnType="void"/>
-                <ownedOperation name="setModifiers" returnType="void"/>
-                <ownedOperation name="setReturnType" returnType="void"/>
-                <association source="MethodModel" target="String" type="AGGREGATES"/>
-                <association source="MethodModel" target="List" type="AGGREGATES"/>
-                <association source="MethodModel" target="String" type="USES"/>
-                <association source="MethodModel" target="List" type="USES"/>
-            </packagedElement>
-            <packagedElement name="PackageModel" xmi:type="uml:Class">
-                <ownedAttribute name="name" type="String"/>
-                <ownedAttribute name="classes" type="List"/>
-                <ownedOperation name="getName" returnType="String"/>
-                <ownedOperation name="toString" returnType="String"/>
-                <ownedOperation name="getClasses" returnType="List"/>
-                <ownedOperation name="setName" returnType="void"/>
-                <ownedOperation name="setClasses" returnType="void"/>
-                <association source="PackageModel" target="List" type="USES"/>
-                <association source="PackageModel" target="String" type="AGGREGATES"/>
-                <association source="PackageModel" target="List" type="AGGREGATES"/>
-                <association source="PackageModel" target="String" type="USES"/>
-            </packagedElement>
-            <packagedElement name="ParameterModel" xmi:type="uml:Class">
-                <ownedAttribute name="type" type="String"/>
-                <ownedAttribute name="name" type="String"/>
-                <ownedOperation name="getName" returnType="String"/>
-                <ownedOperation name="toString" returnType="String"/>
-                <ownedOperation name="setName" returnType="void"/>
-                <ownedOperation name="getType" returnType="String"/>
-                <ownedOperation name="setType" returnType="void"/>
-                <association source="ParameterModel" target="String" type="AGGREGATES"/>
-                <association source="ParameterModel" target="String" type="USES"/>
-            </packagedElement>
-            <packagedElement name="ProjectModel" xmi:type="uml:Class">
-                <ownedAttribute name="name" type="String"/>
-                <ownedAttribute name="packages" type="List"/>
-                <ownedOperation name="getName" returnType="String"/>
-                <ownedOperation name="toString" returnType="String"/>
-                <ownedOperation name="getPackages" returnType="List"/>
-                <ownedOperation name="setName" returnType="void"/>
-                <ownedOperation name="setPackages" returnType="void"/>
-                <ownedOperation name="lambda$0" returnType="void"/>
-                <association source="ProjectModel" target="List" type="USES"/>
-                <association source="ProjectModel" target="String" type="USES"/>
-                <association source="ProjectModel" target="List" type="AGGREGATES"/>
-                <association source="ProjectModel" target="StringBuilder" type="USES"/>
-                <association source="ProjectModel" target="PackageModel" type="USES"/>
-                <association source="ProjectModel" target="String" type="AGGREGATES"/>
-            </packagedElement>
-            <packagedElement name="RelationModel" xmi:type="uml:Class">
-                <ownedAttribute name="sourceClass" type="String"/>
-                <ownedAttribute name="targetClass" type="String"/>
-                <ownedAttribute name="relationType" type="RelationType"/>
-                <ownedOperation name="equals" returnType="boolean"/>
-                <ownedOperation name="toString" returnType="String"/>
-                <ownedOperation name="hashCode" returnType="int"/>
-                <ownedOperation name="setTargetClass" returnType="void"/>
-                <ownedOperation name="setRelationType" returnType="void"/>
-                <ownedOperation name="getSourceClass" returnType="String"/>
-                <ownedOperation name="getRelationType" returnType="RelationType"/>
-                <ownedOperation name="setSourceClass" returnType="void"/>
-                <ownedOperation name="getTargetClass" returnType="String"/>
-                <association source="RelationModel" target="RelationType" type="AGGREGATES"/>
-                <association source="RelationModel" target="String" type="USES"/>
-                <association source="RelationModel" target="String" type="AGGREGATES"/>
-                <association source="RelationModel" target="RelationType" type="USES"/>
-            </packagedElement>
-            <packagedElement name="TestInterface" xmi:type="uml:Class"/>
-        </packagedElement>
-        <packagedElement name="org.mql.java.scanners" xmi:type="uml:Package">
-            <packagedElement name="ClassExplorer" xmi:type="uml:Class">
-                <ownedOperation name="extractParameters" returnType="List"/>
-                <ownedOperation name="extractFields" returnType="List"/>
-                <ownedOperation name="extractMethods" returnType="List"/>
-                <ownedOperation name="extractClasses" returnType="List"/>
-                <ownedOperation name="detectRelationships" returnType="Set"/>
-                <ownedOperation name="extractConstructors" returnType="List"/>
-                <association source="ClassExplorer" target="Set" type="USES"/>
-                <association source="ClassExplorer" target="String" type="USES"/>
-                <association source="ClassExplorer" target="List" type="USES"/>
-                <association source="ClassExplorer" target="Executable" type="USES"/>
-                <association source="ClassExplorer" target="Class" type="USES"/>
-                <association source="ClassExplorer" target="File" type="USES"/>
-            </packagedElement>
-            <packagedElement name="PackageExplorer" xmi:type="uml:Class">
-                <ownedOperation name="explorePackages" returnType="List"/>
-                <association source="PackageExplorer" target="List" type="USES"/>
-                <association source="PackageExplorer" target="File" type="USES"/>
-                <association source="PackageExplorer" target="String" type="USES"/>
-            </packagedElement>
-            <packagedElement name="ProjectExplorer" xmi:type="uml:Class">
-                <ownedAttribute name="rootPath" type="String"/>
-                <ownedOperation name="explore" returnType="ProjectModel"/>
-                <association source="ProjectExplorer" target="ProjectModel" type="USES"/>
-                <association source="ProjectExplorer" target="String" type="AGGREGATES"/>
-            </packagedElement>
-            <packagedElement name="Scanner" xmi:type="uml:Class">
-                <ownedAttribute name="project" type="ProjectModel"/>
-                <ownedOperation name="main" returnType="void"/>
-                <ownedOperation name="scan" returnType="ProjectModel"/>
-                <ownedOperation name="displayScanResults" returnType="void"/>
-                <association source="Scanner" target="String[]" type="USES"/>
-                <association source="Scanner" target="ProjectModel" type="AGGREGATES"/>
-                <association source="Scanner" target="ProjectModel" type="USES"/>
-            </packagedElement>
-        </packagedElement>
-        <packagedElement name="org.mql.java.test" xmi:type="uml:Package">
-            <packagedElement name="Examples" xmi:type="uml:Class">
-                <ownedOperation name="main" returnType="void"/>
-                <ownedOperation name="testConvertToXMI" returnType="void"/>
-                <ownedOperation name="testSaveToXML" returnType="void"/>
-                <ownedOperation name="testScan" returnType="void"/>
-                <association source="Examples" target="String[]" type="USES"/>
-            </packagedElement>
-        </packagedElement>
-        <packagedElement name="org.mql.java.ui" xmi:type="uml:Package">
-            <packagedElement name="Frame" xmi:type="uml:Class">
-                <ownedAttribute name="serialVersionUID" type="long"/>
-                <ownedAttribute name="imagePath" type="String"/>
-                <ownedOperation name="main" returnType="void"/>
-                <association source="Frame" target="JFrame" type="EXTENDS"/>
-                <association source="Frame" target="String" type="AGGREGATES"/>
-                <association source="Frame" target="String[]" type="USES"/>
-            </packagedElement>
-        </packagedElement>
-        <packagedElement name="org.mql.java.util" xmi:type="uml:Package">
-            <packagedElement name="ConsoleDisplay" xmi:type="uml:Class">
-                <ownedOperation name="displaySection" returnType="String"/>
-                <ownedOperation name="displayPackage" returnType="String"/>
-                <ownedOperation name="displayRelationships" returnType="String"/>
-                <ownedOperation name="lambda$0" returnType="void"/>
-                <ownedOperation name="displayClass" returnType="String"/>
-                <ownedOperation name="getIndent" returnType="String"/>
-                <ownedOperation name="lambda$1" returnType="void"/>
-                <ownedOperation name="lambda$3" returnType="void"/>
-                <association source="ConsoleDisplay" target="PackageModel" type="USES"/>
-                <association source="ConsoleDisplay" target="StringBuilder" type="USES"/>
-                <association source="ConsoleDisplay" target="RelationType" type="USES"/>
-                <association source="ConsoleDisplay" target="String" type="USES"/>
-                <association source="ConsoleDisplay" target="List" type="USES"/>
-                <association source="ConsoleDisplay" target="ClassModel" type="USES"/>
-            </packagedElement>
-        </packagedElement>
-        <packagedElement name="org.mql.java.xml" xmi:type="uml:Package">
-            <packagedElement name="XMIConverter" xmi:type="uml:Class">
-                <ownedAttribute name="filePath" type="String"/>
-                <ownedOperation name="convert" returnType="void"/>
-                <ownedOperation name="writeXMIFields" returnType="void"/>
-                <ownedOperation name="writeXMIProject" returnType="void"/>
-                <ownedOperation name="writeXMIPackages" returnType="void"/>
-                <ownedOperation name="writeXMIMethods" returnType="void"/>
-                <ownedOperation name="writeXMIClasses" returnType="void"/>
-                <ownedOperation name="writeXMIRelationships" returnType="void"/>
-                <association source="XMIConverter" target="Document" type="USES"/>
-                <association source="XMIConverter" target="Set" type="USES"/>
-                <association source="XMIConverter" target="Element" type="USES"/>
-                <association source="XMIConverter" target="List" type="USES"/>
-                <association source="XMIConverter" target="String" type="AGGREGATES"/>
-                <association source="XMIConverter" target="ProjectModel" type="USES"/>
-            </packagedElement>
-            <packagedElement name="XMLWriter" xmi:type="uml:Class">
-                <ownedAttribute name="filePath" type="String"/>
-                <ownedOperation name="writeFields" returnType="void"/>
-                <ownedOperation name="writeProject" returnType="void"/>
-                <ownedOperation name="writeConstructors" returnType="void"/>
-                <ownedOperation name="writePackages" returnType="void"/>
-                <ownedOperation name="writeClasses" returnType="void"/>
-                <ownedOperation name="writeModifiers" returnType="void"/>
-                <ownedOperation name="writeMethods" returnType="void"/>
-                <ownedOperation name="writeRelationships" returnType="void"/>
-                <association source="XMLWriter" target="ProjectModel" type="USES"/>
-                <association source="XMLWriter" target="List" type="USES"/>
-                <association source="XMLWriter" target="Set" type="USES"/>
-                <association source="XMLWriter" target="Document" type="USES"/>
-                <association source="XMLWriter" target="String" type="AGGREGATES"/>
-                <association source="XMLWriter" target="Element" type="USES"/>
-            </packagedElement>
-        </packagedElement>
-    </uml:Model>
+<xmi:XMI
+	xmlns:xmi="http://www.omg.org/XMI"
+	xmlns:uml="http://www.omg.org/spec/UML/20090901">
+	<uml:Model name="C:\Users\salma\git\repository2\El bakkouri Salma - UML Generator" xmi:type="uml:Model">
+		<packagedElement name="org" xmi:type="uml:Package"/>
+		<packagedElement name="org.mql" xmi:type="uml:Package"/>
+		<packagedElement name="org.mql.java" xmi:type="uml:Package"/>
+		<packagedElement name="org.mql.java.annotations" xmi:type="uml:Package">
+			<packagedElement name="TestAnnotation" xmi:type="uml:Class">
+				<association source="TestAnnotation" target="Annotation" type="IMPLEMENTS"/>
+			</packagedElement>
+		</packagedElement>
+		<packagedElement name="org.mql.java.enums" xmi:type="uml:Package">
+			<packagedElement name="RelationType" xmi:type="uml:Class">
+				<ownedAttribute name="USES" type="RelationType"/>
+				<ownedAttribute name="EXTENDS" type="RelationType"/>
+				<ownedAttribute name="IMPLEMENTS" type="RelationType"/>
+				<ownedAttribute name="AGGREGATES" type="RelationType"/>
+				<ownedAttribute name="COMPOSES" type="RelationType"/>
+				<ownedAttribute name="ENUM$VALUES" type="RelationType[]"/>
+				<ownedOperation name="values" returnType="RelationType[]"/>
+				<ownedOperation name="valueOf" returnType="RelationType"/>
+				<association source="RelationType" target="RelationType[]" type="AGGREGATES"/>
+				<association source="RelationType" target="RelationType[]" type="USES"/>
+				<association source="RelationType" target="Enum" type="EXTENDS"/>
+				<association source="RelationType" target="RelationType" type="USES"/>
+				<association source="RelationType" target="RelationType" type="AGGREGATES"/>
+				<association source="RelationType" target="String" type="USES"/>
+			</packagedElement>
+		</packagedElement>
+		<packagedElement name="org.mql.java.examples" xmi:type="uml:Package">
+			<packagedElement name="Examples" xmi:type="uml:Class">
+				<ownedOperation name="testScan" returnType="void"/>
+				<ownedOperation name="testParseXML" returnType="void"/>
+				<ownedOperation name="testConvertToXMI" returnType="void"/>
+				<ownedOperation name="testSaveToXML" returnType="void"/>
+				<ownedOperation name="main" returnType="void"/>
+				<association source="Examples" target="String[]" type="USES"/>
+			</packagedElement>
+		</packagedElement>
+		<packagedElement name="org.mql.java.models" xmi:type="uml:Package">
+			<packagedElement name="ClassModel" xmi:type="uml:Class">
+				<ownedAttribute name="name" type="String"/>
+				<ownedAttribute name="type" type="String"/>
+				<ownedAttribute name="modifiers" type="List"/>
+				<ownedAttribute name="fields" type="List"/>
+				<ownedAttribute name="methods" type="List"/>
+				<ownedAttribute name="relationships" type="Set"/>
+				<ownedAttribute name="constructors" type="List"/>
+				<ownedOperation name="setModifiers" returnType="void"/>
+				<ownedOperation name="setRelationships" returnType="void"/>
+				<ownedOperation name="getRelationships" returnType="Set"/>
+				<ownedOperation name="setConstructors" returnType="void"/>
+				<ownedOperation name="setType" returnType="void"/>
+				<ownedOperation name="setMethods" returnType="void"/>
+				<ownedOperation name="getName" returnType="String"/>
+				<ownedOperation name="toString" returnType="String"/>
+				<ownedOperation name="getModifiers" returnType="List"/>
+				<ownedOperation name="getFields" returnType="List"/>
+				<ownedOperation name="getMethods" returnType="List"/>
+				<ownedOperation name="getConstructors" returnType="List"/>
+				<ownedOperation name="setName" returnType="void"/>
+				<ownedOperation name="getType" returnType="String"/>
+				<ownedOperation name="setFields" returnType="void"/>
+				<association source="ClassModel" target="Set" type="USES"/>
+				<association source="ClassModel" target="List" type="USES"/>
+				<association source="ClassModel" target="String" type="USES"/>
+				<association source="ClassModel" target="Set" type="AGGREGATES"/>
+				<association source="ClassModel" target="String" type="AGGREGATES"/>
+				<association source="ClassModel" target="List" type="AGGREGATES"/>
+			</packagedElement>
+			<packagedElement name="ConstructorModel" xmi:type="uml:Class">
+				<ownedAttribute name="modifiers" type="List"/>
+				<ownedAttribute name="parameters" type="List"/>
+				<ownedOperation name="setModifiers" returnType="void"/>
+				<ownedOperation name="toString" returnType="String"/>
+				<ownedOperation name="getModifiers" returnType="List"/>
+				<ownedOperation name="getParameters" returnType="List"/>
+				<ownedOperation name="setParameters" returnType="void"/>
+				<association source="ConstructorModel" target="List" type="AGGREGATES"/>
+				<association source="ConstructorModel" target="String" type="USES"/>
+				<association source="ConstructorModel" target="List" type="USES"/>
+			</packagedElement>
+			<packagedElement name="FieldModel" xmi:type="uml:Class">
+				<ownedAttribute name="name" type="String"/>
+				<ownedAttribute name="type" type="String"/>
+				<ownedAttribute name="modifiers" type="List"/>
+				<ownedOperation name="setModifiers" returnType="void"/>
+				<ownedOperation name="setType" returnType="void"/>
+				<ownedOperation name="getName" returnType="String"/>
+				<ownedOperation name="toString" returnType="String"/>
+				<ownedOperation name="getModifiers" returnType="List"/>
+				<ownedOperation name="setName" returnType="void"/>
+				<ownedOperation name="getType" returnType="String"/>
+				<association source="FieldModel" target="String" type="AGGREGATES"/>
+				<association source="FieldModel" target="List" type="AGGREGATES"/>
+				<association source="FieldModel" target="String" type="USES"/>
+				<association source="FieldModel" target="List" type="USES"/>
+			</packagedElement>
+			<packagedElement name="MethodModel" xmi:type="uml:Class">
+				<ownedAttribute name="name" type="String"/>
+				<ownedAttribute name="returnType" type="String"/>
+				<ownedAttribute name="parameters" type="List"/>
+				<ownedAttribute name="modifiers" type="List"/>
+				<ownedOperation name="setModifiers" returnType="void"/>
+				<ownedOperation name="setReturnType" returnType="void"/>
+				<ownedOperation name="getName" returnType="String"/>
+				<ownedOperation name="toString" returnType="String"/>
+				<ownedOperation name="getModifiers" returnType="List"/>
+				<ownedOperation name="getReturnType" returnType="String"/>
+				<ownedOperation name="setName" returnType="void"/>
+				<ownedOperation name="getParameters" returnType="List"/>
+				<ownedOperation name="setParameters" returnType="void"/>
+				<association source="MethodModel" target="String" type="AGGREGATES"/>
+				<association source="MethodModel" target="List" type="AGGREGATES"/>
+				<association source="MethodModel" target="String" type="USES"/>
+				<association source="MethodModel" target="List" type="USES"/>
+			</packagedElement>
+			<packagedElement name="PackageModel" xmi:type="uml:Class">
+				<ownedAttribute name="name" type="String"/>
+				<ownedAttribute name="classes" type="List"/>
+				<ownedOperation name="setClasses" returnType="void"/>
+				<ownedOperation name="getName" returnType="String"/>
+				<ownedOperation name="toString" returnType="String"/>
+				<ownedOperation name="getClasses" returnType="List"/>
+				<ownedOperation name="setName" returnType="void"/>
+				<association source="PackageModel" target="List" type="USES"/>
+				<association source="PackageModel" target="String" type="AGGREGATES"/>
+				<association source="PackageModel" target="List" type="AGGREGATES"/>
+				<association source="PackageModel" target="String" type="USES"/>
+			</packagedElement>
+			<packagedElement name="ParameterModel" xmi:type="uml:Class">
+				<ownedAttribute name="type" type="String"/>
+				<ownedAttribute name="name" type="String"/>
+				<ownedOperation name="setType" returnType="void"/>
+				<ownedOperation name="getName" returnType="String"/>
+				<ownedOperation name="toString" returnType="String"/>
+				<ownedOperation name="setName" returnType="void"/>
+				<ownedOperation name="getType" returnType="String"/>
+				<association source="ParameterModel" target="String" type="AGGREGATES"/>
+				<association source="ParameterModel" target="String" type="USES"/>
+			</packagedElement>
+			<packagedElement name="ProjectModel" xmi:type="uml:Class">
+				<ownedAttribute name="name" type="String"/>
+				<ownedAttribute name="packages" type="List"/>
+				<ownedOperation name="setPackages" returnType="void"/>
+				<ownedOperation name="lambda$0" returnType="void"/>
+				<ownedOperation name="getName" returnType="String"/>
+				<ownedOperation name="toString" returnType="String"/>
+				<ownedOperation name="getPackages" returnType="List"/>
+				<ownedOperation name="setName" returnType="void"/>
+				<association source="ProjectModel" target="List" type="USES"/>
+				<association source="ProjectModel" target="String" type="USES"/>
+				<association source="ProjectModel" target="List" type="AGGREGATES"/>
+				<association source="ProjectModel" target="StringBuilder" type="USES"/>
+				<association source="ProjectModel" target="PackageModel" type="USES"/>
+				<association source="ProjectModel" target="String" type="AGGREGATES"/>
+			</packagedElement>
+			<packagedElement name="RelationModel" xmi:type="uml:Class">
+				<ownedAttribute name="sourceClass" type="String"/>
+				<ownedAttribute name="targetClass" type="String"/>
+				<ownedAttribute name="relationType" type="RelationType"/>
+				<ownedOperation name="getRelationType" returnType="RelationType"/>
+				<ownedOperation name="getTargetClass" returnType="String"/>
+				<ownedOperation name="setTargetClass" returnType="void"/>
+				<ownedOperation name="getSourceClass" returnType="String"/>
+				<ownedOperation name="setSourceClass" returnType="void"/>
+				<ownedOperation name="setRelationType" returnType="void"/>
+				<ownedOperation name="equals" returnType="boolean"/>
+				<ownedOperation name="toString" returnType="String"/>
+				<ownedOperation name="hashCode" returnType="int"/>
+				<association source="RelationModel" target="RelationType" type="AGGREGATES"/>
+				<association source="RelationModel" target="String" type="USES"/>
+				<association source="RelationModel" target="String" type="AGGREGATES"/>
+				<association source="RelationModel" target="RelationType" type="USES"/>
+			</packagedElement>
+			<packagedElement name="TestInterface" xmi:type="uml:Class"/></packagedElement>
+		<packagedElement name="org.mql.java.scanners" xmi:type="uml:Package">
+			<packagedElement name="ClassExplorer" xmi:type="uml:Class">
+				<ownedOperation name="extractFields" returnType="List"/>
+				<ownedOperation name="extractClasses" returnType="List"/>
+				<ownedOperation name="extractMethods" returnType="List"/>
+				<ownedOperation name="extractParameters" returnType="List"/>
+				<ownedOperation name="detectRelationships" returnType="Set"/>
+				<ownedOperation name="extractConstructors" returnType="List"/>
+				<association source="ClassExplorer" target="Set" type="USES"/>
+				<association source="ClassExplorer" target="String" type="USES"/>
+				<association source="ClassExplorer" target="List" type="USES"/>
+				<association source="ClassExplorer" target="Executable" type="USES"/>
+				<association source="ClassExplorer" target="Class" type="USES"/>
+				<association source="ClassExplorer" target="File" type="USES"/>
+			</packagedElement>
+			<packagedElement name="PackageExplorer" xmi:type="uml:Class">
+				<ownedOperation name="explorePackages" returnType="List"/>
+				<association source="PackageExplorer" target="List" type="USES"/>
+				<association source="PackageExplorer" target="File" type="USES"/>
+				<association source="PackageExplorer" target="String" type="USES"/>
+			</packagedElement>
+			<packagedElement name="ProjectExplorer" xmi:type="uml:Class">
+				<ownedAttribute name="rootPath" type="String"/>
+				<ownedOperation name="explore" returnType="ProjectModel"/>
+				<association source="ProjectExplorer" target="ProjectModel" type="USES"/>
+				<association source="ProjectExplorer" target="String" type="AGGREGATES"/>
+			</packagedElement>
+			<packagedElement name="Scanner" xmi:type="uml:Class">
+				<ownedOperation name="main" returnType="void"/>
+				<ownedOperation name="scan" returnType="ProjectModel"/>
+				<association source="Scanner" target="String[]" type="USES"/>
+				<association source="Scanner" target="ProjectModel" type="USES"/>
+			</packagedElement>
+		</packagedElement>
+		<packagedElement name="org.mql.java.ui" xmi:type="uml:Package">
+			<packagedElement name="Frame" xmi:type="uml:Class">
+				<ownedAttribute name="serialVersionUID" type="long"/>
+				<ownedAttribute name="imagePath" type="String"/>
+				<ownedOperation name="main" returnType="void"/>
+				<association source="Frame" target="JFrame" type="EXTENDS"/>
+				<association source="Frame" target="String" type="AGGREGATES"/>
+				<association source="Frame" target="String[]" type="USES"/>
+			</packagedElement>
+		</packagedElement>
+		<packagedElement name="org.mql.java.util" xmi:type="uml:Package">
+			<packagedElement name="ConsoleDisplay" xmi:type="uml:Class">
+				<ownedOperation name="displayPackage" returnType="String"/>
+				<ownedOperation name="displaySection" returnType="String"/>
+				<ownedOperation name="displayClass" returnType="String"/>
+				<ownedOperation name="displayRelationships" returnType="String"/>
+				<ownedOperation name="lambda$0" returnType="void"/>
+				<ownedOperation name="lambda$3" returnType="void"/>
+				<ownedOperation name="lambda$1" returnType="void"/>
+				<ownedOperation name="getIndent" returnType="String"/>
+				<association source="ConsoleDisplay" target="PackageModel" type="USES"/>
+				<association source="ConsoleDisplay" target="StringBuilder" type="USES"/>
+				<association source="ConsoleDisplay" target="RelationType" type="USES"/>
+				<association source="ConsoleDisplay" target="String" type="USES"/>
+				<association source="ConsoleDisplay" target="List" type="USES"/>
+				<association source="ConsoleDisplay" target="ClassModel" type="USES"/>
+			</packagedElement>
+		</packagedElement>
+		<packagedElement name="org.mql.java.xml" xmi:type="uml:Package">
+			<packagedElement name="XMIConverter" xmi:type="uml:Class">
+				<ownedAttribute name="filePath" type="String"/>
+				<ownedOperation name="convertFromXML" returnType="void"/>
+				<ownedOperation name="writeXMIClasses" returnType="void"/>
+				<ownedOperation name="writeXMIPackages" returnType="void"/>
+				<ownedOperation name="writeXMIFields" returnType="void"/>
+				<ownedOperation name="writeXMIProject" returnType="void"/>
+				<ownedOperation name="writeXMIMethods" returnType="void"/>
+				<ownedOperation name="writeXMIRelationships" returnType="void"/>
+				<ownedOperation name="convert" returnType="void"/>
+				<association source="XMIConverter" target="Document" type="USES"/>
+				<association source="XMIConverter" target="Set" type="USES"/>
+				<association source="XMIConverter" target="Element" type="USES"/>
+				<association source="XMIConverter" target="List" type="USES"/>
+				<association source="XMIConverter" target="String" type="USES"/>
+				<association source="XMIConverter" target="String" type="AGGREGATES"/>
+				<association source="XMIConverter" target="ProjectModel" type="USES"/>
+			</packagedElement>
+			<packagedElement name="XMLNode" xmi:type="uml:Class">
+				<ownedAttribute name="node" type="Node"/>
+				<ownedOperation name="removeChild" returnType="boolean"/>
+				<ownedOperation name="intAttribute" returnType="int"/>
+				<ownedOperation name="doubleAttribute" returnType="double"/>
+				<ownedOperation name="getName" returnType="String"/>
+				<ownedOperation name="getValue" returnType="String"/>
+				<ownedOperation name="getType" returnType="String"/>
+				<ownedOperation name="child" returnType="XMLNode"/>
+				<ownedOperation name="attribute" returnType="String"/>
+				<ownedOperation name="children" returnType="XMLNode[]"/>
+				<ownedOperation name="children" returnType="XMLNode[]"/>
+				<association source="XMLNode" target="XMLNode[]" type="USES"/>
+				<association source="XMLNode" target="Node" type="AGGREGATES"/>
+				<association source="XMLNode" target="String" type="USES"/>
+				<association source="XMLNode" target="XMLNode" type="USES"/>
+			</packagedElement>
+			<packagedElement name="XMLParser" xmi:type="uml:Class">
+				<ownedAttribute name="rootNode" type="XMLNode"/>
+				<ownedOperation name="parseProjects" returnType="List"/>
+				<ownedOperation name="parseClass" returnType="ClassModel"/>
+				<ownedOperation name="parsePackage" returnType="PackageModel"/>
+				<ownedOperation name="parseModifiers" returnType="List"/>
+				<ownedOperation name="parsePackages" returnType="List"/>
+				<ownedOperation name="parseParameters" returnType="List"/>
+				<ownedOperation name="parseFields" returnType="List"/>
+				<ownedOperation name="parseProject" returnType="ProjectModel"/>
+				<ownedOperation name="parseRelationships" returnType="Set"/>
+				<ownedOperation name="parseConstructors" returnType="List"/>
+				<ownedOperation name="parseMethods" returnType="List"/>
+				<association source="XMLParser" target="List" type="USES"/>
+				<association source="XMLParser" target="ClassModel" type="USES"/>
+				<association source="XMLParser" target="XMLNode" type="USES"/>
+				<association source="XMLParser" target="PackageModel" type="USES"/>
+				<association source="XMLParser" target="ProjectModel" type="USES"/>
+				<association source="XMLParser" target="XMLNode" type="AGGREGATES"/>
+				<association source="XMLParser" target="Set" type="USES"/>
+			</packagedElement>
+			<packagedElement name="XMLWriter" xmi:type="uml:Class">
+				<ownedAttribute name="filePath" type="String"/>
+				<ownedOperation name="writeProject" returnType="void"/>
+				<ownedOperation name="writeClasses" returnType="void"/>
+				<ownedOperation name="writePackages" returnType="void"/>
+				<ownedOperation name="writeConstructors" returnType="void"/>
+				<ownedOperation name="writeModifiers" returnType="void"/>
+				<ownedOperation name="writeMethods" returnType="void"/>
+				<ownedOperation name="writeRelationships" returnType="void"/>
+				<ownedOperation name="writeFields" returnType="void"/>
+				<association source="XMLWriter" target="ProjectModel" type="USES"/>
+				<association source="XMLWriter" target="List" type="USES"/>
+				<association source="XMLWriter" target="Set" type="USES"/>
+				<association source="XMLWriter" target="Document" type="USES"/>
+				<association source="XMLWriter" target="String" type="AGGREGATES"/>
+				<association source="XMLWriter" target="Element" type="USES"/>
+			</packagedElement>
+		</packagedElement>
+	</uml:Model>
 </xmi:XMI>

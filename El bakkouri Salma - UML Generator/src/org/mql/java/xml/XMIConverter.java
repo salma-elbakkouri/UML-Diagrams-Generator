@@ -1,124 +1,160 @@
 package org.mql.java.xml;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.Set;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
+import org.mql.java.models.*;
+import org.mql.java.enums.RelationType;
+import org.w3c.dom.*;
+import javax.xml.parsers.*;
+import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
-import org.mql.java.models.ClassModel;
-import org.mql.java.models.FieldModel;
-import org.mql.java.models.MethodModel;
-import org.mql.java.models.PackageModel;
-import org.mql.java.models.ProjectModel;
-import org.mql.java.models.RelationModel;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
+import java.io.*;
+import java.util.*;
 
 public class XMIConverter {
 
 	private String filePath;
 
 	public XMIConverter(String filePath) {
-		super();
 		this.filePath = filePath;
 	}
 
-	public void convert(ProjectModel project) {
+	public void convertFromXML(String xmlFilePath) {
 		try {
+			File inputFile = new File(xmlFilePath);
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc;
+			Document doc = builder.parse(inputFile);
+			doc.getDocumentElement().normalize();
 
-			doc = builder.newDocument();
-
-			Element xmiRoot = doc.createElement("xmi:XMI");
-			xmiRoot.setAttribute("xmlns:xmi", "http://www.omg.org/XMI");
-			xmiRoot.setAttribute("xmlns:uml", "http://www.omg.org/spec/UML/20090901");
-			doc.appendChild(xmiRoot);
-
-			writeXMIProject(doc, xmiRoot, project);
-
-			TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();
-			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File(filePath.replace(".xml", ".xmi")));
-			transformer.transform(source, result);
-
-			System.out.println("XMI file created successfully: " + filePath.replace(".xml", ".xmi"));
+			NodeList projectNodes = doc.getElementsByTagName("project");
+			if (projectNodes.getLength() > 0) {
+				Element projectElement = (Element) projectNodes.item(0);
+				convert(projectElement);
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void writeXMIProject(Document doc, Element xmiRoot, ProjectModel project) {
+	public void convert(Element projectElement) {
+		try {
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = factory.newDocumentBuilder();
+			Document doc = builder.newDocument();
+
+			Element xmiRoot = doc.createElement("xmi:XMI");
+			xmiRoot.setAttribute("xmlns:xmi", "http://www.omg.org/XMI");
+			xmiRoot.setAttribute("xmlns:uml", "http://www.omg.org/spec/UML/20090901");
+			doc.appendChild(xmiRoot);
+
+			String projectName = projectElement.getAttribute("name");
+			writeXMIProject(doc, xmiRoot, projectName, projectElement);
+
+			TransformerFactory transformerFactory = TransformerFactory.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			StreamResult result = new StreamResult(new File(filePath));
+			transformer.transform(source, result);
+
+			System.out.println("XMI file created successfully: " + filePath);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void writeXMIProject(Document doc, Element xmiRoot, String projectName, Element projectElement) {
 		Element umlModel = doc.createElement("uml:Model");
 		umlModel.setAttribute("xmi:type", "uml:Model");
-		umlModel.setAttribute("name", project.getName());
+		umlModel.setAttribute("name", projectName);
 		xmiRoot.appendChild(umlModel);
 
-		writeXMIPackages(doc, umlModel, project.getPackages());
-	}
-
-	private void writeXMIPackages(Document doc, Element umlModel, List<PackageModel> packages) {
-		for (PackageModel pkg : packages) {
-			Element umlPackage = doc.createElement("packagedElement");
-			umlPackage.setAttribute("xmi:type", "uml:Package");
-			umlPackage.setAttribute("name", pkg.getName());
-			umlModel.appendChild(umlPackage);
-
-			writeXMIClasses(doc, umlPackage, pkg.getClasses());
+		NodeList packagesNodes = projectElement.getElementsByTagName("packages");
+		if (packagesNodes.getLength() > 0) {
+			Element packagesElement = (Element) packagesNodes.item(0);
+			writeXMIPackages(doc, umlModel, packagesElement);
 		}
 	}
 
-	private void writeXMIClasses(Document doc, Element umlPackage, List<ClassModel> classes) {
-		for (ClassModel cls : classes) {
-			Element umlClass = doc.createElement("packagedElement");
-			umlClass.setAttribute("xmi:type", "uml:Class");
-			umlClass.setAttribute("name", cls.getName());
-
-			writeXMIFields(doc, umlClass, cls.getFields());
-			writeXMIMethods(doc, umlClass, cls.getMethods());
-			writeXMIRelationships(doc, umlClass, cls.getRelationships());
-
-			umlPackage.appendChild(umlClass);
+	private void writeXMIPackages(Document doc, Element umlModel, Element packagesElement) {
+		NodeList packageNodes = packagesElement.getElementsByTagName("package");
+		for (int i = 0; i < packageNodes.getLength(); i++) {
+			Element packageElement = (Element) packageNodes.item(i);
+			writeXMIClasses(doc, umlModel, packageElement);
 		}
 	}
 
-	private void writeXMIFields(Document doc, Element umlClass, List<FieldModel> fields) {
-		for (FieldModel field : fields) {
-			Element umlProperty = doc.createElement("ownedAttribute");
-			umlProperty.setAttribute("name", field.getName());
-			umlProperty.setAttribute("type", field.getType());
-			umlClass.appendChild(umlProperty);
+	private void writeXMIClasses(Document doc, Element umlModel, Element packageElement) {
+		String packageName = packageElement.getAttribute("name");
+		Element umlPackage = doc.createElement("packagedElement");
+		umlPackage.setAttribute("xmi:type", "uml:Package");
+		umlPackage.setAttribute("name", packageName);
+		umlModel.appendChild(umlPackage);
+
+		NodeList classNodes = packageElement.getElementsByTagName("class");
+		for (int i = 0; i < classNodes.getLength(); i++) {
+			Element classElement = (Element) classNodes.item(i);
+			writeXMIClass(doc, umlPackage, classElement);
 		}
 	}
 
-	private void writeXMIMethods(Document doc, Element umlClass, List<MethodModel> methods) {
-		for (MethodModel method : methods) {
-			Element umlOperation = doc.createElement("ownedOperation");
-			umlOperation.setAttribute("name", method.getName());
-			umlOperation.setAttribute("returnType", method.getReturnType());
-			umlClass.appendChild(umlOperation);
+	private void writeXMIClass(Document doc, Element umlPackage, Element classElement) {
+		String className = classElement.getAttribute("name");
+		Element umlClass = doc.createElement("packagedElement");
+		umlClass.setAttribute("xmi:type", "uml:Class");
+		umlClass.setAttribute("name", className);
+
+		writeXMIFields(doc, umlClass, classElement);
+		writeXMIMethods(doc, umlClass, classElement);
+		writeXMIRelationships(doc, umlClass, classElement);
+
+		umlPackage.appendChild(umlClass);
+	}
+
+	private void writeXMIFields(Document doc, Element umlClass, Element classElement) {
+		NodeList fieldsNodes = classElement.getElementsByTagName("fields");
+		if (fieldsNodes.getLength() > 0) {
+			Element fieldsElement = (Element) fieldsNodes.item(0);
+			NodeList fieldNodes = fieldsElement.getElementsByTagName("field");
+			for (int i = 0; i < fieldNodes.getLength(); i++) {
+				Element fieldElement = (Element) fieldNodes.item(i);
+				Element umlProperty = doc.createElement("ownedAttribute");
+				umlProperty.setAttribute("name", fieldElement.getAttribute("name"));
+				umlProperty.setAttribute("type", fieldElement.getAttribute("type"));
+				umlClass.appendChild(umlProperty);
+			}
 		}
 	}
 
-	private void writeXMIRelationships(Document doc, Element umlClass, Set<RelationModel> relationships) {
-		for (RelationModel relation : relationships) {
-			Element umlAssociation = doc.createElement("association");
-			umlAssociation.setAttribute("source", relation.getSourceClass());
-			umlAssociation.setAttribute("target", relation.getTargetClass());
-			umlAssociation.setAttribute("type", relation.getRelationType().toString());
-			umlClass.appendChild(umlAssociation);
+	private void writeXMIMethods(Document doc, Element umlClass, Element classElement) {
+		NodeList methodsNodes = classElement.getElementsByTagName("methods");
+		if (methodsNodes.getLength() > 0) {
+			Element methodsElement = (Element) methodsNodes.item(0);
+			NodeList methodNodes = methodsElement.getElementsByTagName("method");
+			for (int i = 0; i < methodNodes.getLength(); i++) {
+				Element methodElement = (Element) methodNodes.item(i);
+				Element umlOperation = doc.createElement("ownedOperation");
+				umlOperation.setAttribute("name", methodElement.getAttribute("name"));
+				umlOperation.setAttribute("returnType", methodElement.getAttribute("returnType"));
+				umlClass.appendChild(umlOperation);
+			}
 		}
 	}
 
+	private void writeXMIRelationships(Document doc, Element umlClass, Element classElement) {
+		NodeList relationshipsNodes = classElement.getElementsByTagName("relationships");
+		if (relationshipsNodes.getLength() > 0) {
+			Element relationshipsElement = (Element) relationshipsNodes.item(0);
+			NodeList relationshipNodes = relationshipsElement.getElementsByTagName("relationship");
+			for (int i = 0; i < relationshipNodes.getLength(); i++) {
+				Element relationshipElement = (Element) relationshipNodes.item(i);
+				Element umlAssociation = doc.createElement("association");
+				umlAssociation.setAttribute("source", relationshipElement.getAttribute("sourceClass"));
+				umlAssociation.setAttribute("target", relationshipElement.getAttribute("targetClass"));
+				umlAssociation.setAttribute("type", relationshipElement.getAttribute("type"));
+				umlClass.appendChild(umlAssociation);
+			}
+		}
+	}
 }
