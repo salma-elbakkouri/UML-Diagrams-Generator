@@ -1,0 +1,14 @@
+<XMI xmi.version="2.1" xmlns:UML="org.omg.xmi.namespace.UML">
+  <XMI.content>
+    <UML:Class xmi.id="c1" name="Person">
+    
+      <UML:Attribute xmi.id="at1" name="name" type="String" visibility="private"/>
+      <UML:Attribute xmi.id="at2" name="age" type="Integer" visibility="private"/>
+      <UML:Attribute xmi.id="at3" name="email" type="String" visibility="private"/>
+
+      <UML:Operation xmi.id="op1" name="displayInfo" visibility="public">
+        <UML:Parameter xmi.id="p1" name="return" type="void" direction="return"/>
+      </UML:Operation>
+    </UML:Class>
+  </XMI.content>
+</XMI>

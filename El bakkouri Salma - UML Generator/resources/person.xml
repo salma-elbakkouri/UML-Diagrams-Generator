@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Class name="Person">
+  <Attributes>
+    <Attribute name="name" type="String" visibility="private"/>
+    <Attribute name="age" type="Integer" visibility="private"/>
+    <Attribute name="email" type="String" visibility="private"/>
+  </Attributes>
+  <Methods>
+    <Method name="displayInfo" visibility="public">
+      <ReturnType>void</ReturnType>
+    </Method>
+  </Methods>
+</Class>

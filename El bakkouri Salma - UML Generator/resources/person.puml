@@ -1,0 +1,19 @@
+@startuml
+class Person {
+  - name: String
+  - age: Integer
+  - email: String
+  - phone: String
+  + displayInfo(): void
+}
+class Student extends Person {
+  - studentId: String
+  - University: String
+  - academicEmail: String
+  + displayInfo(): void
+}
+interface transaction {
+ - amount: double
+ + getAmount(): double
+}
+@enduml

@@ -1,7 +1,6 @@
 package org.mql.java.scanners;
 
 import org.mql.java.models.ProjectModel;
-import org.mql.java.xml.DOMWriter;
 
 public class Scanner {
 	private ProjectModel project;
@@ -14,27 +13,21 @@ public class Scanner {
 		String rootPath = System.getProperty("user.dir");
 		ProjectExplorer projectExplorer = new ProjectExplorer(rootPath);
 		project = projectExplorer.explore();
-		if (project != null) {
-			 displayScanResults();
-			 saveToXML("resources/projects.xml");
-			return project;
-		} else {
-			System.err.println("Project scanning failed!");
-			return null;
-		}
+		displayScanResults();
+		return project;
 	}
 
 	public void displayScanResults() {
-		System.out.println(project);
+		if (project != null) {
+			System.out.println("Project Scan Results:");
+			System.out.println(project);
+		} else {
+			System.err.println("No project found during scanning!");
+		}
 	}
 
-
-	private void saveToXML(String filePath) {
-		DOMWriter writer = new DOMWriter(filePath);
-        writer.writeProject(project);
-	}
-	
 	public static void main(String[] args) {
 		new Scanner();
 	}
+
 }

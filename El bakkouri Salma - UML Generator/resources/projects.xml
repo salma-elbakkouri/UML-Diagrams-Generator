@@ -1,1184 +1,2419 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <projects>
-	<project
-		name="C:\Users\salma\git\repository2\El bakkouri Salma - UML Generator"
-		path="C:\Users\salma\git\repository2\El bakkouri Salma - UML Generator">
-		<packages>
-			<package name="org" path="org" />
-			<package name="org.mql" path="org.mql" />
-			<package name="org.mql.java" path="org.mql.java" />
-			<package name="org.mql.java.annotations"
-				path="org.mql.java.annotations">
-				<class name="TestAnnotation" type="annotation">
-					<modifiers>
-						<modifier>public</modifier>
-						<modifier>abstract</modifier>
-						<modifier>interface</modifier>
-					</modifiers>
-					<fields />
-					<constructors />
-					<methods />
-					<relationships>
-						<relationship sourceClass="TestAnnotation"
-							targetClass="Annotation" type="IMPLEMENTS" />
-					</relationships>
-				</class>
-			</package>
-			<package name="org.mql.java.enums" path="org.mql.java.enums">
-				<class name="RelationType" type="enumeration">
-					<modifiers>
-						<modifier>public</modifier>
-						<modifier>final</modifier>
-					</modifiers>
-					<fields>
-						<field name="USES" type="RelationType">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-								<modifier>final</modifier>
-							</modifiers>
-						</field>
-						<field name="EXTENDS" type="RelationType">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-								<modifier>final</modifier>
-							</modifiers>
-						</field>
-						<field name="IMPLEMENTS" type="RelationType">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-								<modifier>final</modifier>
-							</modifiers>
-						</field>
-						<field name="AGGREGATES" type="RelationType">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-								<modifier>final</modifier>
-							</modifiers>
-						</field>
-						<field name="COMPOSES" type="RelationType">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-								<modifier>final</modifier>
-							</modifiers>
-						</field>
-						<field name="ENUM$VALUES" type="RelationType[]">
-							<modifiers>
-								<modifier>private</modifier>
-								<modifier>static</modifier>
-								<modifier>final</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="values" returnType="RelationType[]">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-						<method name="valueOf" returnType="RelationType">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="RelationType"
-							targetClass="Enum" type="EXTENDS" />
-						<relationship sourceClass="RelationType"
-							targetClass="RelationType[]" type="USES" />
-						<relationship sourceClass="RelationType"
-							targetClass="String" type="USES" />
-						<relationship sourceClass="RelationType"
-							targetClass="RelationType[]" type="AGGREGATES" />
-						<relationship sourceClass="RelationType"
-							targetClass="RelationType" type="AGGREGATES" />
-						<relationship sourceClass="RelationType"
-							targetClass="RelationType" type="USES" />
-					</relationships>
-				</class>
-			</package>
-			<package name="org.mql.java.models" path="org.mql.java.models">
-				<class name="ClassModel" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="name" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="type" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="modifiers" type="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="fields" type="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="methods" type="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="relationships" type="Set">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="constructors" type="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="getName" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="toString" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getModifiers" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getFields" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getMethods" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getConstructors" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setName" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getType" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setFields" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setModifiers" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getRelationships" returnType="Set">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setRelationships" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setConstructors" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setType" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setMethods" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="ClassModel"
-							targetClass="List" type="AGGREGATES" />
-						<relationship sourceClass="ClassModel" targetClass="Set"
-							type="AGGREGATES" />
-						<relationship sourceClass="ClassModel" targetClass="Set"
-							type="USES" />
-						<relationship sourceClass="ClassModel"
-							targetClass="String" type="USES" />
-						<relationship sourceClass="ClassModel"
-							targetClass="List" type="USES" />
-						<relationship sourceClass="ClassModel"
-							targetClass="String" type="AGGREGATES" />
-					</relationships>
-				</class>
-				<class name="ConstructorModel" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="modifiers" type="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="parameters" type="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="toString" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getModifiers" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getParameters" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setParameters" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setModifiers" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="ConstructorModel"
-							targetClass="List" type="USES" />
-						<relationship sourceClass="ConstructorModel"
-							targetClass="List" type="AGGREGATES" />
-						<relationship sourceClass="ConstructorModel"
-							targetClass="String" type="USES" />
-					</relationships>
-				</class>
-				<class name="FieldModel" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="name" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="type" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="modifiers" type="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="getName" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="toString" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getModifiers" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setName" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getType" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setModifiers" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setType" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="FieldModel"
-							targetClass="String" type="AGGREGATES" />
-						<relationship sourceClass="FieldModel"
-							targetClass="List" type="AGGREGATES" />
-						<relationship sourceClass="FieldModel"
-							targetClass="String" type="USES" />
-						<relationship sourceClass="FieldModel"
-							targetClass="List" type="USES" />
-					</relationships>
-				</class>
-				<class name="MethodModel" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="name" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="returnType" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="parameters" type="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="modifiers" type="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="getName" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="toString" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getModifiers" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getReturnType" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setName" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getParameters" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setParameters" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setModifiers" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setReturnType" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="MethodModel"
-							targetClass="String" type="AGGREGATES" />
-						<relationship sourceClass="MethodModel"
-							targetClass="String" type="USES" />
-						<relationship sourceClass="MethodModel"
-							targetClass="List" type="USES" />
-						<relationship sourceClass="MethodModel"
-							targetClass="List" type="AGGREGATES" />
-					</relationships>
-				</class>
-				<class name="PackageModel" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="name" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="classes" type="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="getName" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="toString" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getClasses" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setName" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setClasses" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="PackageModel"
-							targetClass="List" type="AGGREGATES" />
-						<relationship sourceClass="PackageModel"
-							targetClass="String" type="USES" />
-						<relationship sourceClass="PackageModel"
-							targetClass="List" type="USES" />
-						<relationship sourceClass="PackageModel"
-							targetClass="String" type="AGGREGATES" />
-					</relationships>
-				</class>
-				<class name="ParameterModel" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="type" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="name" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="getName" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="toString" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setName" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getType" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setType" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="ParameterModel"
-							targetClass="String" type="AGGREGATES" />
-						<relationship sourceClass="ParameterModel"
-							targetClass="String" type="USES" />
-					</relationships>
-				</class>
-				<class name="ProjectModel" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="name" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="packages" type="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="getName" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="toString" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getPackages" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setName" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="lambda$0" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-						<method name="setPackages" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="ProjectModel"
-							targetClass="String" type="AGGREGATES" />
-						<relationship sourceClass="ProjectModel"
-							targetClass="List" type="USES" />
-						<relationship sourceClass="ProjectModel"
-							targetClass="StringBuilder" type="USES" />
-						<relationship sourceClass="ProjectModel"
-							targetClass="List" type="AGGREGATES" />
-						<relationship sourceClass="ProjectModel"
-							targetClass="PackageModel" type="USES" />
-						<relationship sourceClass="ProjectModel"
-							targetClass="String" type="USES" />
-					</relationships>
-				</class>
-				<class name="RelationModel" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="sourceClass" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="targetClass" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-						<field name="relationType" type="RelationType">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="equals" returnType="boolean">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="toString" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="hashCode" returnType="int">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getSourceClass" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setSourceClass" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setTargetClass" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getTargetClass" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="getRelationType" returnType="RelationType">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="setRelationType" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="RelationModel"
-							targetClass="String" type="AGGREGATES" />
-						<relationship sourceClass="RelationModel"
-							targetClass="RelationType" type="USES" />
-						<relationship sourceClass="RelationModel"
-							targetClass="String" type="USES" />
-						<relationship sourceClass="RelationModel"
-							targetClass="RelationType" type="AGGREGATES" />
-					</relationships>
-				</class>
-				<class name="TestInterface" type="interface">
-					<modifiers>
-						<modifier>public</modifier>
-						<modifier>abstract</modifier>
-						<modifier>interface</modifier>
-					</modifiers>
-					<fields />
-					<constructors />
-					<methods />
-					<relationships />
-				</class>
-			</package>
-			<package name="org.mql.java.scanners" path="org.mql.java.scanners">
-				<class name="ClassExplorer" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields />
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="extractClasses" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="extractFields" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="extractParameters" returnType="List">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="extractMethods" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="extractConstructors" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="detectRelationships" returnType="Set">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="ClassExplorer"
-							targetClass="File" type="USES" />
-						<relationship sourceClass="ClassExplorer"
-							targetClass="String" type="USES" />
-						<relationship sourceClass="ClassExplorer"
-							targetClass="List" type="USES" />
-						<relationship sourceClass="ClassExplorer"
-							targetClass="Class" type="USES" />
-						<relationship sourceClass="ClassExplorer"
-							targetClass="Executable" type="USES" />
-						<relationship sourceClass="ClassExplorer"
-							targetClass="Set" type="USES" />
-					</relationships>
-				</class>
-				<class name="PackageExplorer" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields />
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="explorePackages" returnType="List">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="PackageExplorer"
-							targetClass="String" type="USES" />
-						<relationship sourceClass="PackageExplorer"
-							targetClass="List" type="USES" />
-						<relationship sourceClass="PackageExplorer"
-							targetClass="File" type="USES" />
-					</relationships>
-				</class>
-				<class name="ProjectExplorer" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="rootPath" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-								<modifier>final</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="explore" returnType="ProjectModel">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="ProjectExplorer"
-							targetClass="String" type="AGGREGATES" />
-						<relationship sourceClass="ProjectExplorer"
-							targetClass="ProjectModel" type="USES" />
-					</relationships>
-				</class>
-				<class name="Scanner" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="project" type="ProjectModel">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="main" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-						<method name="scan" returnType="ProjectModel">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="saveToXML" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="displayScanResults" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="Scanner"
-							targetClass="ProjectModel" type="AGGREGATES" />
-						<relationship sourceClass="Scanner"
-							targetClass="ProjectModel" type="USES" />
-						<relationship sourceClass="Scanner"
-							targetClass="String[]" type="USES" />
-						<relationship sourceClass="Scanner" targetClass="String"
-							type="USES" />
-					</relationships>
-				</class>
-			</package>
-			<package name="org.mql.java.ui" path="org.mql.java.ui">
-				<class name="Frame" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="serialVersionUID" type="long">
-							<modifiers>
-								<modifier>private</modifier>
-								<modifier>static</modifier>
-								<modifier>final</modifier>
-							</modifiers>
-						</field>
-						<field name="imagePath" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="main" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="Frame" targetClass="String"
-							type="AGGREGATES" />
-						<relationship sourceClass="Frame" targetClass="JFrame"
-							type="EXTENDS" />
-						<relationship sourceClass="Frame" targetClass="String[]"
-							type="USES" />
-					</relationships>
-				</class>
-			</package>
-			<package name="org.mql.java.util" path="org.mql.java.util">
-				<class name="ConsoleDisplay" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields />
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="lambda$0" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-						<method name="displayPackage" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-						<method name="displaySection" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-						<method name="displayClass" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-						<method name="displayRelationships" returnType="String">
-							<modifiers>
-								<modifier>public</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-						<method name="getIndent" returnType="String">
-							<modifiers>
-								<modifier>private</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-						<method name="lambda$1" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-						<method name="lambda$3" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-								<modifier>static</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="ConsoleDisplay"
-							targetClass="RelationType" type="USES" />
-						<relationship sourceClass="ConsoleDisplay"
-							targetClass="String" type="USES" />
-						<relationship sourceClass="ConsoleDisplay"
-							targetClass="PackageModel" type="USES" />
-						<relationship sourceClass="ConsoleDisplay"
-							targetClass="List" type="USES" />
-						<relationship sourceClass="ConsoleDisplay"
-							targetClass="StringBuilder" type="USES" />
-						<relationship sourceClass="ConsoleDisplay"
-							targetClass="ClassModel" type="USES" />
-					</relationships>
-				</class>
-			</package>
-			<package name="org.mql.java.xml" path="org.mql.java.xml">
-				<class name="DOMWriter" type="class">
-					<modifiers>
-						<modifier>public</modifier>
-					</modifiers>
-					<fields>
-						<field name="filePath" type="String">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</field>
-					</fields>
-					<constructors>
-						<constructor>
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</constructor>
-					</constructors>
-					<methods>
-						<method name="writeFields" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeProject" returnType="void">
-							<modifiers>
-								<modifier>public</modifier>
-							</modifiers>
-						</method>
-						<method name="writeConstructors" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeRelationships" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeModifiers" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeMethods" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writeClasses" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-						<method name="writePackages" returnType="void">
-							<modifiers>
-								<modifier>private</modifier>
-							</modifiers>
-						</method>
-					</methods>
-					<relationships>
-						<relationship sourceClass="DOMWriter"
-							targetClass="Document" type="USES" />
-						<relationship sourceClass="DOMWriter" targetClass="Set"
-							type="USES" />
-						<relationship sourceClass="DOMWriter"
-							targetClass="ProjectModel" type="USES" />
-						<relationship sourceClass="DOMWriter"
-							targetClass="String" type="AGGREGATES" />
-						<relationship sourceClass="DOMWriter"
-							targetClass="Element" type="USES" />
-						<relationship sourceClass="DOMWriter" targetClass="List"
-							type="USES" />
-					</relationships>
-				</class>
-			</package>
-		</packages>
-	</project>
+    <project>
+    </project>
+    <project name="C:\Users\salma\git\repository2\El bakkouri Salma - UML Generator" path="C:\Users\salma\git\repository2\El bakkouri Salma - UML Generator">
+        <packages>
+            <package name="org" path="org"/>
+            <package name="org.mql" path="org.mql"/>
+            <package name="org.mql.java" path="org.mql.java"/>
+            <package name="org.mql.java.annotations" path="org.mql.java.annotations">
+                <class name="TestAnnotation" type="annotation">
+                    <modifiers>
+                        <modifier>public</modifier>
+                        <modifier>abstract</modifier>
+                        <modifier>interface</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors/>
+                    <methods/>
+                    <relationships>
+                        <relationship sourceClass="TestAnnotation" targetClass="Annotation" type="IMPLEMENTS"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.enums" path="org.mql.java.enums">
+                <class name="RelationType" type="enumeration">
+                    <modifiers>
+                        <modifier>public</modifier>
+                        <modifier>final</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="USES" type="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="EXTENDS" type="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="IMPLEMENTS" type="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="AGGREGATES" type="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="COMPOSES" type="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="ENUM$VALUES" type="RelationType[]">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="values" returnType="RelationType[]">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="valueOf" returnType="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="RelationType" targetClass="RelationType[]" type="AGGREGATES"/>
+                        <relationship sourceClass="RelationType" targetClass="RelationType[]" type="USES"/>
+                        <relationship sourceClass="RelationType" targetClass="Enum" type="EXTENDS"/>
+                        <relationship sourceClass="RelationType" targetClass="RelationType" type="USES"/>
+                        <relationship sourceClass="RelationType" targetClass="RelationType" type="AGGREGATES"/>
+                        <relationship sourceClass="RelationType" targetClass="String" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.models" path="org.mql.java.models">
+                <class name="ClassModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="type" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="modifiers" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="fields" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="methods" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="relationships" type="Set">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="constructors" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getModifiers" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getFields" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getMethods" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getConstructors" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getType" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setFields" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getRelationships" returnType="Set">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setRelationships" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setModifiers" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setConstructors" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setMethods" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setType" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ClassModel" targetClass="Set" type="USES"/>
+                        <relationship sourceClass="ClassModel" targetClass="List" type="USES"/>
+                        <relationship sourceClass="ClassModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="ClassModel" targetClass="Set" type="AGGREGATES"/>
+                        <relationship sourceClass="ClassModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="ClassModel" targetClass="List" type="AGGREGATES"/>
+                    </relationships>
+                </class>
+                <class name="ConstructorModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="modifiers" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="parameters" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getModifiers" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getParameters" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setParameters" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setModifiers" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ConstructorModel" targetClass="List" type="AGGREGATES"/>
+                        <relationship sourceClass="ConstructorModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="ConstructorModel" targetClass="List" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="FieldModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="type" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="modifiers" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getModifiers" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getType" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setModifiers" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setType" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="FieldModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="FieldModel" targetClass="List" type="AGGREGATES"/>
+                        <relationship sourceClass="FieldModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="FieldModel" targetClass="List" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="MethodModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="returnType" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="parameters" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="modifiers" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getModifiers" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getReturnType" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getParameters" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setParameters" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setModifiers" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setReturnType" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="MethodModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="MethodModel" targetClass="List" type="AGGREGATES"/>
+                        <relationship sourceClass="MethodModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="MethodModel" targetClass="List" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="PackageModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="classes" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getClasses" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setClasses" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="PackageModel" targetClass="List" type="USES"/>
+                        <relationship sourceClass="PackageModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="PackageModel" targetClass="List" type="AGGREGATES"/>
+                        <relationship sourceClass="PackageModel" targetClass="String" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="ParameterModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="type" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getType" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setType" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ParameterModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="ParameterModel" targetClass="String" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="ProjectModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="packages" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getPackages" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setPackages" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="lambda$0" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ProjectModel" targetClass="List" type="USES"/>
+                        <relationship sourceClass="ProjectModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="ProjectModel" targetClass="List" type="AGGREGATES"/>
+                        <relationship sourceClass="ProjectModel" targetClass="StringBuilder" type="USES"/>
+                        <relationship sourceClass="ProjectModel" targetClass="PackageModel" type="USES"/>
+                        <relationship sourceClass="ProjectModel" targetClass="String" type="AGGREGATES"/>
+                    </relationships>
+                </class>
+                <class name="RelationModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="sourceClass" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="targetClass" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="relationType" type="RelationType">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="equals" returnType="boolean">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="hashCode" returnType="int">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setTargetClass" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getTargetClass" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setRelationType" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getSourceClass" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getRelationType" returnType="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setSourceClass" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="RelationModel" targetClass="RelationType" type="AGGREGATES"/>
+                        <relationship sourceClass="RelationModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="RelationModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="RelationModel" targetClass="RelationType" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="TestInterface" type="interface">
+                    <modifiers>
+                        <modifier>public</modifier>
+                        <modifier>abstract</modifier>
+                        <modifier>interface</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors/>
+                    <methods/>
+                    <relationships/>
+                </class>
+            </package>
+            <package name="org.mql.java.scanners" path="org.mql.java.scanners">
+                <class name="ClassExplorer" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="extractFields" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="extractMethods" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="extractClasses" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="extractParameters" returnType="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="detectRelationships" returnType="Set">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="extractConstructors" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ClassExplorer" targetClass="Set" type="USES"/>
+                        <relationship sourceClass="ClassExplorer" targetClass="String" type="USES"/>
+                        <relationship sourceClass="ClassExplorer" targetClass="List" type="USES"/>
+                        <relationship sourceClass="ClassExplorer" targetClass="Executable" type="USES"/>
+                        <relationship sourceClass="ClassExplorer" targetClass="Class" type="USES"/>
+                        <relationship sourceClass="ClassExplorer" targetClass="File" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="PackageExplorer" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="explorePackages" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="PackageExplorer" targetClass="List" type="USES"/>
+                        <relationship sourceClass="PackageExplorer" targetClass="File" type="USES"/>
+                        <relationship sourceClass="PackageExplorer" targetClass="String" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="ProjectExplorer" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="rootPath" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="explore" returnType="ProjectModel">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ProjectExplorer" targetClass="ProjectModel" type="USES"/>
+                        <relationship sourceClass="ProjectExplorer" targetClass="String" type="AGGREGATES"/>
+                    </relationships>
+                </class>
+                <class name="Scanner" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="project" type="ProjectModel">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="main" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="scan" returnType="ProjectModel">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="displayScanResults" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="Scanner" targetClass="String[]" type="USES"/>
+                        <relationship sourceClass="Scanner" targetClass="ProjectModel" type="AGGREGATES"/>
+                        <relationship sourceClass="Scanner" targetClass="ProjectModel" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.test" path="org.mql.java.test">
+                <class name="Examples" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="main" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="testSaveToXML" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="testConvertToXMI" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="testScan" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="Examples" targetClass="String[]" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.ui" path="org.mql.java.ui">
+                <class name="Frame" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="serialVersionUID" type="long">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="imagePath" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="main" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="Frame" targetClass="JFrame" type="EXTENDS"/>
+                        <relationship sourceClass="Frame" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="Frame" targetClass="String[]" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.util" path="org.mql.java.util">
+                <class name="ConsoleDisplay" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="displaySection" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="displayPackage" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="displayClass" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="displayRelationships" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="lambda$0" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="lambda$3" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getIndent" returnType="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="lambda$1" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="PackageModel" type="USES"/>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="StringBuilder" type="USES"/>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="RelationType" type="USES"/>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="String" type="USES"/>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="List" type="USES"/>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="ClassModel" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.xml" path="org.mql.java.xml">
+                <class name="XMIConverter" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="filePath" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="convert" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeXMIClasses" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeXMIProject" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeXMIMethods" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeXMIFields" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeXMIPackages" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeXMIRelationships" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="XMIConverter" targetClass="Document" type="USES"/>
+                        <relationship sourceClass="XMIConverter" targetClass="Set" type="USES"/>
+                        <relationship sourceClass="XMIConverter" targetClass="Element" type="USES"/>
+                        <relationship sourceClass="XMIConverter" targetClass="List" type="USES"/>
+                        <relationship sourceClass="XMIConverter" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="XMIConverter" targetClass="ProjectModel" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="XMLWriter" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="filePath" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="writeFields" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeProject" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writePackages" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeModifiers" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeConstructors" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeClasses" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeMethods" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeRelationships" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="XMLWriter" targetClass="ProjectModel" type="USES"/>
+                        <relationship sourceClass="XMLWriter" targetClass="List" type="USES"/>
+                        <relationship sourceClass="XMLWriter" targetClass="Set" type="USES"/>
+                        <relationship sourceClass="XMLWriter" targetClass="Document" type="USES"/>
+                        <relationship sourceClass="XMLWriter" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="XMLWriter" targetClass="Element" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+        </packages>
+    </project>
+    <project name="C:\Users\salma\git\repository2\El bakkouri Salma - UML Generator" path="C:\Users\salma\git\repository2\El bakkouri Salma - UML Generator">
+        <packages>
+            <package name="org" path="org"/>
+            <package name="org.mql" path="org.mql"/>
+            <package name="org.mql.java" path="org.mql.java"/>
+            <package name="org.mql.java.annotations" path="org.mql.java.annotations">
+                <class name="TestAnnotation" type="annotation">
+                    <modifiers>
+                        <modifier>public</modifier>
+                        <modifier>abstract</modifier>
+                        <modifier>interface</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors/>
+                    <methods/>
+                    <relationships>
+                        <relationship sourceClass="TestAnnotation" targetClass="Annotation" type="IMPLEMENTS"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.enums" path="org.mql.java.enums">
+                <class name="RelationType" type="enumeration">
+                    <modifiers>
+                        <modifier>public</modifier>
+                        <modifier>final</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="USES" type="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="EXTENDS" type="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="IMPLEMENTS" type="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="AGGREGATES" type="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="COMPOSES" type="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="ENUM$VALUES" type="RelationType[]">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="values" returnType="RelationType[]">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="valueOf" returnType="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="RelationType" targetClass="RelationType[]" type="AGGREGATES"/>
+                        <relationship sourceClass="RelationType" targetClass="RelationType[]" type="USES"/>
+                        <relationship sourceClass="RelationType" targetClass="Enum" type="EXTENDS"/>
+                        <relationship sourceClass="RelationType" targetClass="RelationType" type="USES"/>
+                        <relationship sourceClass="RelationType" targetClass="RelationType" type="AGGREGATES"/>
+                        <relationship sourceClass="RelationType" targetClass="String" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.models" path="org.mql.java.models">
+                <class name="ClassModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="type" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="modifiers" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="fields" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="methods" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="relationships" type="Set">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="constructors" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="setModifiers" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setRelationships" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getRelationships" returnType="Set">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setConstructors" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setType" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setMethods" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getModifiers" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getFields" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getMethods" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getConstructors" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getType" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setFields" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ClassModel" targetClass="Set" type="USES"/>
+                        <relationship sourceClass="ClassModel" targetClass="List" type="USES"/>
+                        <relationship sourceClass="ClassModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="ClassModel" targetClass="Set" type="AGGREGATES"/>
+                        <relationship sourceClass="ClassModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="ClassModel" targetClass="List" type="AGGREGATES"/>
+                    </relationships>
+                </class>
+                <class name="ConstructorModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="modifiers" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="parameters" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="setModifiers" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getModifiers" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getParameters" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setParameters" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ConstructorModel" targetClass="List" type="AGGREGATES"/>
+                        <relationship sourceClass="ConstructorModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="ConstructorModel" targetClass="List" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="FieldModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="type" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="modifiers" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="setModifiers" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setType" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getModifiers" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getType" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="FieldModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="FieldModel" targetClass="List" type="AGGREGATES"/>
+                        <relationship sourceClass="FieldModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="FieldModel" targetClass="List" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="MethodModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="returnType" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="parameters" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="modifiers" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="setReturnType" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setModifiers" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getModifiers" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getReturnType" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getParameters" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setParameters" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="MethodModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="MethodModel" targetClass="List" type="AGGREGATES"/>
+                        <relationship sourceClass="MethodModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="MethodModel" targetClass="List" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="PackageModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="classes" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="setClasses" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getClasses" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="PackageModel" targetClass="List" type="USES"/>
+                        <relationship sourceClass="PackageModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="PackageModel" targetClass="List" type="AGGREGATES"/>
+                        <relationship sourceClass="PackageModel" targetClass="String" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="ParameterModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="type" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="setType" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getType" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ParameterModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="ParameterModel" targetClass="String" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="ProjectModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="name" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="packages" type="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="setPackages" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="lambda$0" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getName" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getPackages" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setName" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ProjectModel" targetClass="List" type="USES"/>
+                        <relationship sourceClass="ProjectModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="ProjectModel" targetClass="List" type="AGGREGATES"/>
+                        <relationship sourceClass="ProjectModel" targetClass="StringBuilder" type="USES"/>
+                        <relationship sourceClass="ProjectModel" targetClass="PackageModel" type="USES"/>
+                        <relationship sourceClass="ProjectModel" targetClass="String" type="AGGREGATES"/>
+                    </relationships>
+                </class>
+                <class name="RelationModel" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="sourceClass" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="targetClass" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="relationType" type="RelationType">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="setSourceClass" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getTargetClass" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setTargetClass" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="setRelationType" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getSourceClass" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getRelationType" returnType="RelationType">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="equals" returnType="boolean">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="toString" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="hashCode" returnType="int">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="RelationModel" targetClass="RelationType" type="AGGREGATES"/>
+                        <relationship sourceClass="RelationModel" targetClass="String" type="USES"/>
+                        <relationship sourceClass="RelationModel" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="RelationModel" targetClass="RelationType" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="TestInterface" type="interface">
+                    <modifiers>
+                        <modifier>public</modifier>
+                        <modifier>abstract</modifier>
+                        <modifier>interface</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors/>
+                    <methods/>
+                    <relationships/>
+                </class>
+            </package>
+            <package name="org.mql.java.scanners" path="org.mql.java.scanners">
+                <class name="ClassExplorer" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="extractParameters" returnType="List">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="extractMethods" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="extractClasses" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="extractFields" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="detectRelationships" returnType="Set">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="extractConstructors" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ClassExplorer" targetClass="Set" type="USES"/>
+                        <relationship sourceClass="ClassExplorer" targetClass="String" type="USES"/>
+                        <relationship sourceClass="ClassExplorer" targetClass="List" type="USES"/>
+                        <relationship sourceClass="ClassExplorer" targetClass="Executable" type="USES"/>
+                        <relationship sourceClass="ClassExplorer" targetClass="Class" type="USES"/>
+                        <relationship sourceClass="ClassExplorer" targetClass="File" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="PackageExplorer" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="explorePackages" returnType="List">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="PackageExplorer" targetClass="List" type="USES"/>
+                        <relationship sourceClass="PackageExplorer" targetClass="File" type="USES"/>
+                        <relationship sourceClass="PackageExplorer" targetClass="String" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="ProjectExplorer" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="rootPath" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="explore" returnType="ProjectModel">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ProjectExplorer" targetClass="ProjectModel" type="USES"/>
+                        <relationship sourceClass="ProjectExplorer" targetClass="String" type="AGGREGATES"/>
+                    </relationships>
+                </class>
+                <class name="Scanner" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="project" type="ProjectModel">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="displayScanResults" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="main" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="scan" returnType="ProjectModel">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="Scanner" targetClass="String[]" type="USES"/>
+                        <relationship sourceClass="Scanner" targetClass="ProjectModel" type="AGGREGATES"/>
+                        <relationship sourceClass="Scanner" targetClass="ProjectModel" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.test" path="org.mql.java.test">
+                <class name="Examples" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="testScan" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="testConvertToXMI" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="testSaveToXML" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="main" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="Examples" targetClass="String[]" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.ui" path="org.mql.java.ui">
+                <class name="Frame" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="serialVersionUID" type="long">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                                <modifier>final</modifier>
+                            </modifiers>
+                        </field>
+                        <field name="imagePath" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="main" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="Frame" targetClass="JFrame" type="EXTENDS"/>
+                        <relationship sourceClass="Frame" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="Frame" targetClass="String[]" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.util" path="org.mql.java.util">
+                <class name="ConsoleDisplay" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields/>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="displaySection" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="displayClass" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="displayPackage" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="displayRelationships" returnType="String">
+                            <modifiers>
+                                <modifier>public</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="lambda$0" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="lambda$3" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="getIndent" returnType="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="lambda$1" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                                <modifier>static</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="PackageModel" type="USES"/>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="StringBuilder" type="USES"/>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="RelationType" type="USES"/>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="String" type="USES"/>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="List" type="USES"/>
+                        <relationship sourceClass="ConsoleDisplay" targetClass="ClassModel" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+            <package name="org.mql.java.xml" path="org.mql.java.xml">
+                <class name="XMIConverter" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="filePath" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="writeXMIProject" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeXMIPackages" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeXMIMethods" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeXMIClasses" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeXMIFields" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeXMIRelationships" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="convert" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="XMIConverter" targetClass="Document" type="USES"/>
+                        <relationship sourceClass="XMIConverter" targetClass="Set" type="USES"/>
+                        <relationship sourceClass="XMIConverter" targetClass="Element" type="USES"/>
+                        <relationship sourceClass="XMIConverter" targetClass="List" type="USES"/>
+                        <relationship sourceClass="XMIConverter" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="XMIConverter" targetClass="ProjectModel" type="USES"/>
+                    </relationships>
+                </class>
+                <class name="XMLWriter" type="class">
+                    <modifiers>
+                        <modifier>public</modifier>
+                    </modifiers>
+                    <fields>
+                        <field name="filePath" type="String">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </field>
+                    </fields>
+                    <constructors>
+                        <constructor>
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </constructor>
+                    </constructors>
+                    <methods>
+                        <method name="writeClasses" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writePackages" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeProject" returnType="void">
+                            <modifiers>
+                                <modifier>public</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeConstructors" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeRelationships" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeMethods" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeModifiers" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                        <method name="writeFields" returnType="void">
+                            <modifiers>
+                                <modifier>private</modifier>
+                            </modifiers>
+                        </method>
+                    </methods>
+                    <relationships>
+                        <relationship sourceClass="XMLWriter" targetClass="ProjectModel" type="USES"/>
+                        <relationship sourceClass="XMLWriter" targetClass="List" type="USES"/>
+                        <relationship sourceClass="XMLWriter" targetClass="Set" type="USES"/>
+                        <relationship sourceClass="XMLWriter" targetClass="Document" type="USES"/>
+                        <relationship sourceClass="XMLWriter" targetClass="String" type="AGGREGATES"/>
+                        <relationship sourceClass="XMLWriter" targetClass="Element" type="USES"/>
+                    </relationships>
+                </class>
+            </package>
+        </packages>
+    </project>
 </projects>

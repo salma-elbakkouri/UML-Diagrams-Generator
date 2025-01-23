@@ -44,7 +44,6 @@ public class ConsoleDisplay {
         }
 
         sb.append("\n");
-
         return sb.toString();
     }
 

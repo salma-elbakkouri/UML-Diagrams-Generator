@@ -16,11 +16,11 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Set;
 
-public class DOMWriter {
+public class XMLWriter {
 
     private String filePath;
 
-    public DOMWriter(String filePath) {
+    public XMLWriter(String filePath) {
         this.filePath = filePath;
     }
 
