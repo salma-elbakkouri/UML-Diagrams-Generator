@@ -2,6 +2,7 @@ package org.mql.java.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ConstructorModel {
     private List<String> modifiers;
@@ -35,13 +36,12 @@ public class ConstructorModel {
 
     @Override
     public String toString() {
-        StringBuilder params = new StringBuilder();
-        for (int i = 0; i < parameters.size(); i++) {
-            params.append(parameters.get(i));
-            if (i < parameters.size() - 1) {
-                params.append(", ");
-            }
-        }
-        return String.format("%s Constructor(%s)", String.join(" ", modifiers), params.toString());
+        return String.format("%s (%s)",
+            String.join(" ", modifiers),
+            String.join(", ", parameters.stream().map(ParameterModel::toString).toList())
+        );
     }
+	
+
+    
 }

@@ -3,26 +3,24 @@ package org.mql.java.examples;
 import java.util.List;
 
 import org.mql.java.models.ProjectModel;
-import org.mql.java.scanners.Scanner;
+import org.mql.java.services.Scanner;
 import org.mql.java.xml.XMIConverter;
 import org.mql.java.xml.XMLParser;
 import org.mql.java.xml.XMLWriter;
 
 public class Examples {
 
-    public Examples() {
-//    	testScan();
-//    	testSaveToXML();
-//      testConvertToXMI();
-    	testParseXML();
-    }
+    private ProjectModel project;
 
-    public void testScan() {
-        System.out.println("Running test: testScan");
-        Scanner scanner = new Scanner();
-        ProjectModel project = scanner.scan();
+    public Examples() {
+        String projectPath = "D:\\Users\\salma\\eclipse-workspace\\El bakkouri Salma - StringMapper";
+        Scanner scanner = new Scanner(projectPath);
+        project = scanner.scan();
+
         if (project != null) {
-            System.out.println("Scan successful.");
+            testSaveToXML();
+            testConvertToXMI();
+            testParseXML();
         } else {
             System.err.println("Scan failed!");
         }
@@ -30,16 +28,10 @@ public class Examples {
 
     public void testSaveToXML() {
         System.out.println("Running test: testSaveToXML");
-        Scanner scanner = new Scanner();
-        ProjectModel project = scanner.scan();
-        if (project != null) {
-            String xmlFilePath = "resources/projects.xml";
-            XMLWriter writer = new XMLWriter(xmlFilePath);
-            writer.writeProject(project);
-            System.out.println("Project saved to XML successfully: " + xmlFilePath);
-        } else {
-            System.err.println("Project scan failed; cannot save to XML.");
-        }
+        String xmlFilePath = "resources/projects.xml";
+        XMLWriter writer = new XMLWriter(xmlFilePath);
+        writer.writeProject(project);
+        System.out.println("Project saved to XML successfully: " + xmlFilePath);
     }
 
     public void testConvertToXMI() {

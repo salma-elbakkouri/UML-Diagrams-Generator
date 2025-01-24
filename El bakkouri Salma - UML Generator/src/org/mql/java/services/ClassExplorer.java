@@ -1,4 +1,4 @@
-package org.mql.java.scanners;
+package org.mql.java.services;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
@@ -7,6 +7,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,19 +23,33 @@ import org.mql.java.models.RelationModel;
 
 public class ClassExplorer {
 
-	public List<ClassModel> extractClasses(File folder, String packageName) {
-		List<ClassModel> classes = new Vector<>();
+	private String rootBinDirectory;
+
+	public ClassExplorer(String rootBinDirectory) {
+		this.rootBinDirectory = rootBinDirectory;
+	}
+
+	public List<ClassModel> extractClasses(File folder, String packageName) throws ClassNotFoundException {
+		List<ClassModel> classes = new ArrayList<>();
 		File[] files = folder.listFiles();
+
 		if (files == null)
 			return classes;
 
 		for (File file : files) {
-			if (file.isFile() && file.getName().endsWith(".java")) {
-				String className = packageName + "." + file.getName().replace(".java", "");
-				ClassModel classModel = new ClassModel();
+			if (file.isDirectory()) {
+				String newPackage = packageName.isEmpty() ? file.getName() : packageName + "." + file.getName();
+				classes.addAll(extractClasses(file, newPackage));
+			} else if (file.getName().endsWith(".class")) {
+				String className = packageName.isEmpty() ? file.getName().replace(".class", "")
+						: packageName + "." + file.getName().replace(".class", "");
 
 				try {
-					Class<?> cls = Class.forName(className);
+					CustomClassLoader customClassLoader = new CustomClassLoader(rootBinDirectory);
+					Class<?> cls = customClassLoader.loadClass(className);
+
+					ClassModel classModel = new ClassModel();
+
 					classModel.setName(cls.getSimpleName());
 					if (cls.isEnum()) {
 						classModel.setType("enumeration");
@@ -52,11 +67,12 @@ public class ClassExplorer {
 					classModel.setMethods(extractMethods(cls));
 					classModel.setRelationships(detectRelationships(cls));
 					classes.add(classModel);
-				} catch (ClassNotFoundException e) {
-					System.out.println("Class not found: " + className);
+				} catch (Exception e) {
+					System.out.println("Error loading class: " + className + ". Reason: " + e.getMessage());
 				}
 			}
 		}
+
 		return classes;
 	}
 

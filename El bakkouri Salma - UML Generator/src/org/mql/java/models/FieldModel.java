@@ -43,10 +43,10 @@ public class FieldModel {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s %s %s", 
-            modifiers != null ? String.join(" ", modifiers) : "", 
-            type, 
-            name);
-    }
+	public String toString() {
+	    return String.format("%s %s %s", String.join(" ", modifiers), type, name);
+	}
+
+
+    
 }

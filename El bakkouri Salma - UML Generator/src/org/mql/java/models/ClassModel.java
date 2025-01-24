@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.mql.java.util.ConsoleDisplay;
 
 public class ClassModel {
     private String name;
@@ -17,11 +16,11 @@ public class ClassModel {
     private List<ConstructorModel> constructors;
 
     public ClassModel() {
-        this.modifiers = modifiers != null ? modifiers : new ArrayList<>();
-        this.fields = fields != null ? fields : new ArrayList<>();
-        this.methods = methods != null ? methods : new ArrayList<>();
-        this.relationships = relationships != null ? relationships : new HashSet<>();
-        this.constructors = constructors != null ? constructors : new ArrayList<>();
+        this.modifiers = new ArrayList<>();
+        this.fields = new ArrayList<>();
+        this.methods = new ArrayList<>();
+        this.relationships = new HashSet<>();
+        this.constructors = new ArrayList<>();
     }
 
     public ClassModel(String name, String type) {
@@ -87,25 +86,42 @@ public class ClassModel {
     }
 
     @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
+	public String toString() {
+		StringBuilder sb = new StringBuilder("");
+		String formattedModifiers = String.join(" ", modifiers);
+		sb.append("|__ " + formattedModifiers + " " + type + ": " + name + "\n");
 
-        sb.append("|__ Class: ").append(String.join(" ", modifiers)).append(" ").append(type).append(": ").append(name)
-                .append("\n");
+		if (!fields.isEmpty()) {
+			sb.append("\t|__ Fields:\n");
+			for (FieldModel field : fields) {
+				sb.append("\t    ").append(field).append("\n");
+			}
+		}
+		if (!constructors.isEmpty()) {
+			sb.append("\t|__ Constructors:\n");
+			for (ConstructorModel constructor : constructors) {
+				sb.append("\t    ").append(constructor).append("\n");
+			}
+		}
+		if (!methods.isEmpty()) {
+			sb.append("\t|__ Methods:\n");
+			for (MethodModel method : methods) {
+				sb.append("\t    ").append(method).append("\n");
+			}
+		}
+		if (!relationships.isEmpty()) {
+			sb.append("\t|__ Relationships:\n");
+			for (RelationModel relationship : relationships) {
+				sb.append("\t    ").append(relationship).append("\n");
+			}
+		}
 
-        if (constructors != null && !constructors.isEmpty()) {
-            sb.append(ConsoleDisplay.displaySection("Constructors", constructors, 1));
-        }
-        if (fields != null && !fields.isEmpty()) {
-            sb.append(ConsoleDisplay.displaySection("Fields", fields, 1));
-        }
-        if (methods != null && !methods.isEmpty()) {
-            sb.append(ConsoleDisplay.displaySection("Methods", methods, 1));
-        }
-        if (relationships != null && !relationships.isEmpty()) {
-            sb.append(ConsoleDisplay.displayRelationships(name, List.copyOf(relationships), 1));
-        }
+		return sb.toString();
 
-        return sb.toString();
-    }
+	}
+
+    
+    
+
+   
 }
