@@ -1,20 +1,21 @@
 package org.mql.java.models;
 
+import java.util.ArrayList;
 import java.util.List;
-
 
 public class PackageModel {
 	private String name;
 	private List<ClassModel> classes;
 
 	public PackageModel(String name) {
-		this.name = name;
-	}
+        this.name = name;
+        this.classes = new ArrayList<>(); 
+    }
 
 	public PackageModel() {
-		// TODO Auto-generated constructor stub
 	}
 
+	
 	public String getName() {
 		return name;
 	}
@@ -40,7 +41,5 @@ public class PackageModel {
 		}
 		return sb.toString();
 	}
-
-	
 
 }

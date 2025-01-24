@@ -1,5 +1,6 @@
 package org.mql.java.examples;
 
+import java.io.File;
 import java.util.List;
 
 import org.mql.java.models.ProjectModel;
@@ -14,6 +15,10 @@ public class Examples {
 
     public Examples() {
         String projectPath = "D:\\Users\\salma\\eclipse-workspace\\El bakkouri Salma - StringMapper";
+        System.out.println("UI Path: " + projectPath);
+        File binFolder = new File(projectPath + File.separator + "bin");
+        
+        System.out.println("Bin Folder Exists: " + binFolder.exists());
         Scanner scanner = new Scanner(projectPath);
         project = scanner.scan();
 

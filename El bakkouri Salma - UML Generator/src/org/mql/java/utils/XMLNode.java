@@ -1,4 +1,4 @@
-package org.mql.java.xml;
+package org.mql.java.utils;
 
 import java.util.List;
 import java.util.Vector;

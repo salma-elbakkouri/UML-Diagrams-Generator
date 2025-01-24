@@ -2,6 +2,7 @@ package org.mql.java.xml;
 
 import org.mql.java.enums.RelationType;
 import org.mql.java.models.*;
+import org.mql.java.utils.XMLNode;
 
 import java.util.ArrayList;
 import java.util.HashSet;
