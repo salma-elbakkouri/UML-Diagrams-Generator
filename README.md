@@ -1,8 +1,6 @@
 # Documentation du Projet : UML Diagrams Generator
 
 Ce projet, intitulé UML Diagrams Generator, est un outil Java conçu pour analyser la structure des projets Java et générer des diagrammes UML.
-
-## Contenu de la Documentation
 Pour une documentation complète et détaillée, veuillez consulter le fichier **[El bakkouri Salma - Documentation Projet.docx](./documentation/El%20bakkouri%20Salma%20-%20Documentation%20Projet.docx)**.
 
 ## Pourquoi un Rapport WORD ?
